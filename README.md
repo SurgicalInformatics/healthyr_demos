@@ -2,7 +2,7 @@
 
 More information on the HealthyR: R for Health Data Science courses and free resources can be found at https://healthyr.surgicalinformatics.org/
 
-## library(finalfit) - quickly create elegant final results tables and plots when modelling in R
+## library(finalfit) - quickly create elegant final results tables and plots
 
 The video covers:
 * demographics table
