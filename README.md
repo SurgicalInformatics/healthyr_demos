@@ -4,7 +4,12 @@ More information on the HealthyR: R for Health Data Science courses and free res
 
 ## library(finalfit) - quickly create elegant final results tables and plots when modelling in R
 
-Dataset here: TODO add
+The video covers:
+* demographics table
+* variable labels
+* odds ratio plots
+
+Dataset here: TODO add  
 Code here: TODO add
 
 [![Watch the video](video_thumbnails/2022-04-21_finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
