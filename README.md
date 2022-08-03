@@ -7,6 +7,6 @@ More information on the HealthyR: R for Health Data Science courses and free res
 Dataset here: TODO add
 Code here: TODO add
 
-[![Watch the video](video_thumbnails/2022-04-21_finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct | width=100)  
+[![Watch the video](video_thumbnails/2022-04-21_finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
 Recorded in April 2022.
 
