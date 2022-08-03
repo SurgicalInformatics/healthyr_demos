@@ -12,7 +12,7 @@ The video covers:
 Dataset here: TODO add  
 Code here: TODO add
 
-[![Watch the video](video_thumbnails/finalfit-2022.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
+[![Watch the video](video_thumbnails/finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
 Recorded in April 2022.
 
 ## bar plots - geom_bar() or geom_col()?
@@ -26,5 +26,5 @@ The video covers:
 Dataset here: TODO add  
 Code here: TODO add
 
-[![Watch the video](video_thumbnails/geom_bar-2022.png)][(https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20geom_bar()%20vs%20geom_col()/1_49w03lqk))  
+[![Watch the video](video_thumbnails/geom_bar.png)][(https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20geom_bar()%20vs%20geom_col()/1_49w03lqk))  
 Recorded in April 2022.
