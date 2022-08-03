@@ -1,0 +1,51 @@
+---
+title: "Minimal reproducible example - demo"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+penguins = penguins
+```
+
+```{r}
+
+penguins %>% 
+  mutate(species = fct_relevel(species, "Adelie", "Gentoo")) %>% 
+  ggplot(aes(x=species)) +
+  geom_bar()
+
+```
+
+```{r}
+
+penguins %>% 
+  mutate(species = fct_relevel(species, "Adelie", "Gentoo")) %>% 
+  ggplot(aes(x=species, y=flipper_length_mm)) +
+  geom_jitter() +
+  geom_boxplot(fill=NA)
+
+```
+
+```{r}
+
+penguins %>% 
+  group_by(species) %>% 
+  summarise(flipper_mean = mean(flipper_length_mm))
+
+```
+
+```{r}
+
+library(tidyverse)
+
+example_data = tibble(species = c("a", "b", "c", "a", "b", "c"),
+                      flipper = c(1:5, NA))
+
+example_data %>% 
+  group_by(species) %>% 
+  summarise(flipper_mean = mean(flipper))
+
+```

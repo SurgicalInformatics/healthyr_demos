@@ -9,8 +9,7 @@ This video covers:
 * variable labels
 * odds ratio plots
 
-Dataset here: TODO add  
-Code here: TODO add
+!(melanoma dataset and R Markdown document (2022-04 folder))[link]
 
 
 [![Watch the video](video_thumbnails/finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
@@ -24,8 +23,7 @@ This video covers:
 * Summarising data and then plotting aggregated data with geom_col()
 * Reordering factors in geom_col()
 
-Dataset here: TODO add  
-Code here: TODO add
+!(R Script, including dataset loading (2022-05 folder))[link]
 
 [![Watch the video](video_thumbnails/geom_bar.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20geom_bar()%20vs%20geom_col()/1_49w03lqk)  
 Recorded in May 2022.
@@ -36,8 +34,7 @@ This video covers:
 *   
 *  
 
-Dataset here: TODO add
-Code here: TODO add
+!(R Markdown document including dataset loading (2022-06 folder))[link]
 
 [![Watch the video](video_thumbnails/reprex.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Reproducible%20examples%20(reprex)/1_zo8af9bg)  
 Recorded in June 2022.

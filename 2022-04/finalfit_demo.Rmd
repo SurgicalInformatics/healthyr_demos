@@ -1,0 +1,36 @@
+---
+title: "Export results"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+#+ setup, include=FALSE
+knitr::opts_chunk$set(
+	echo = TRUE,
+	error = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+library(tidyverse)
+library(finalfit)
+library(knitr)
+
+load("melanoma_factored.rda")
+```
+
+# Section 1: Introduction
+
+```{r}
+mydata %>% 
+  summary_factorlist("ulcer.factor", c("sex.factor", "age.factor"))
+```
+
+
+
+
+
+
+
