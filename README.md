@@ -30,6 +30,10 @@ Presented by Riinu Pius and Ewen Harrison, recorded in May 2022.
 
 # Reproducible example - reprex
 
+This video covers:
+* Generating dummy/example datasets with tibble()
+* Reproducing real dataset issues in an example dataset
+* Sharing minimal reproducible examples
 
 [R Markdown document including dataset loading (2022-06 folder in this repository)](2022-06)
 
