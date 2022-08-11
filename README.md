@@ -2,6 +2,8 @@
 
 More information on the HealthyR: R for Health Data Science courses and free resources can be found at https://healthyr.surgicalinformatics.org/
 
+*Internal note: the demo bank lives in healthyr_admin.*
+
 ## library(finalfit) - quickly create elegant final results tables and plots
 
 This video covers:
@@ -39,4 +41,6 @@ This video covers:
 
 [![Watch the video](video_thumbnails/reprex.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Reproducible%20examples%20(reprex)/1_zo8af9bg)  
 Presented by Riinu Pius and Mathew Thorpe, Recorded in June 2022.
+
+
 
