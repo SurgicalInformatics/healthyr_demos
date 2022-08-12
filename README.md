@@ -1,6 +1,6 @@
 # HealthyR live demos
 
-More information on the HealthyR: R for Health Data Science courses and free resources can be found at https://healthyr.surgicalinformatics.org/
+More information on the HealthyR: R for Health Data Science courses, upcoming live demos, clinics, and free resources can be found at https://healthyr.surgicalinformatics.org/
 
 *Internal note: the demo bank lives in healthyr_admin.*
 
