@@ -51,7 +51,7 @@ This video covers:
 
 [R Script including dataset loading (2022-08 folder in this repository)](2022-08)
 
-[![Watch the video](video_thumbnails/global_map.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Global%20Map/1_sz1b44q4)  
+[![Watch the video](video_thumbnails/global_map_label.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Global%20Map/1_sz1b44q4)  
 Presented by Riinu Pius and Ewen Harrison, Recorded in August 2022.
 
 
