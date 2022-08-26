@@ -30,7 +30,7 @@ This video covers:
 [![Watch the video](video_thumbnails/geom_bar.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20geom_bar()%20vs%20geom_col()/1_49w03lqk)  
 Presented by Riinu Pius and Ewen Harrison, recorded in May 2022.
 
-# Reproducible example - reprex
+## Reproducible example - reprex
 
 This video covers:
 * Generating dummy/example datasets with tibble()
@@ -41,6 +41,18 @@ This video covers:
 
 [![Watch the video](video_thumbnails/reprex.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Reproducible%20examples%20(reprex)/1_zo8af9bg)  
 Presented by Riinu Pius and Mathew Thorpe, Recorded in June 2022.
+
+## Create a global map
+
+This video covers:
+* Exploring a brand new dataset
+* Creating a global map, customised based on your data
+* Troubleshooting issues based on mismatched countries
+
+[R Script including dataset loading (2022-08 folder in this repository)](2022-08)
+
+[![Watch the video](video_thumbnails/global_map.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Global%20Map/1_sz1b44q4)  
+Presented by Riinu Pius and Ewen Harrison, Recorded in August 2022.
 
 
 
