@@ -31,7 +31,7 @@ wwc_outcomes %>%
 
 ### Understand round
 wwc_outcomes %>% 
-  distinct(round)
+  distinct(round) 
 
 ### Niall - who won each year?
 wwc_outcomes %>% 
