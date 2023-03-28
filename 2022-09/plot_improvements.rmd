@@ -1,0 +1,123 @@
+---
+title: "Plot Improvements"
+output: html_document
+date: "2022-09-08"
+---
+
+# Take A Sad Plot and Make it Better 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load libraries 
+
+```{r}
+library(tidyverse)
+library(scales)
+library(palmerpenguins)
+library(ggbeeswarm)
+```
+
+## Dataset 
+
+```{r}
+finalfit::missing_glimpse(penguins)
+penguins = penguins %>% 
+  drop_na(species, sex, body_mass_g)
+```
+
+## Sad Plot
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot() +
+  facet_grid(.~island)
+```
+
+
+## Sad Plot + raw data
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(alpha = 0.2) +
+  facet_grid(.~island)
+
+# Checkout geom_boxplot2
+## https://stackoverflow.com/questions/5677885/ignore-outliers-in-ggplot2-boxplot
+```
+## Sad Plot + raw data + remove grey background
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(alpha = 0.2) +
+  facet_grid(.~island) + 
+  theme_bw()
+```
+
+## Sad Plot + raw data + remove grey background + axis labels
+
+```{r}
+library(ggtext)
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(alpha = 0.2) +
+  # labs(x = "Species", y = "Body mass (g)") +
+  labs(x = "Species", y = "Body mass (g^(2))") +
+  facet_grid(. ~ island) +
+  theme_bw() +
+  theme(axis.title.y = element_markdown())
+```
+
+
+
+## Sad Plot + raw data + remove grey background + axis labels + remove empty factor levels
+
+```{r}
+forcats::fct_drop
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(alpha = 0.2) +
+  labs(x = "Species", y = "Body mass (g^(2))") +
+  facet_grid(. ~ island, scales = "free_x") +
+  theme_bw() +
+  theme(axis.title.y = element_markdown())
+```
+
+# Sad plot + change whisker length
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g)) + 
+  geom_boxplot(coef = 2) +
+  facet_grid(.~island)
+```
+
+## Hints 
+
+* Add the raw data - colour per species - change colour palatte
+* Remove the outliers
+* Remove the grey background
+* Fix the axes lables - remove legend
+* Add the mean
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = body_mass_g))  +
+  geom_boxplot(fill = NA, outlier.shape = NA, alpha = 0.2) +                                  # remove outliers
+  facet_grid(.~island, scales = "free_x", space = "free_x") +                                 # free x axis          
+  geom_jitter(aes(colour = species), alpha = 0.5, width = 0.1, size = 3) +                    # jitter 
+  labs(y = "Body Mass (g)", x = "Penguin Species", caption = "Source: Palmerpenguins") +      # Axis captions
+  stat_summary(fun = mean, 
+               geom = "point", shape = 20, size = 5, color = "black", fill = "black") +       # Add mean
+  scale_colour_viridis_d() +                                                                  # Change colour scheme 
+  theme_bw() +                                                                                # Remove grey background  
+  theme(legend.position = "none")                                                             # Remove legend - note: setting the theme should be done after removing background theme
+```
