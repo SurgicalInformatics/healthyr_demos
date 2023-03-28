@@ -1,0 +1,54 @@
+---
+title: "HealtyR demo: Pivot"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+
+# Load the datasets
+# Datasets from Tidy Tuesday
+colony <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-11/colony.csv')
+stressor <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-11/stressor.csv')
+
+# Start with wide dataset for this demo
+# Data showing percentage of bee colonies impacted by various stressors over time 
+wide_stressor = stressor %>% 
+  pivot_wider(names_from = months, values_from = stress_pct)
+```
+
+## Make data long
+```{r}
+long_stressor = wide_stressor %>% 
+  pivot_longer(4:7,
+               names_to = "months", values_to = "stress_pct")
+
+long_stressor = wide_stressor %>% 
+  pivot_longer(c("January-March", "April-June",
+                      "July-September", "October-December"), 
+               names_to = "months", values_to = "stress_pct")
+
+long_stressor = wide_stressor %>% 
+  pivot_longer(all_of(c("January-March", "April-June",
+                      "July-September", "October-December")), 
+               names_to = "months", values_to = "stress_pct")
+
+long_stressor = wide_stressor %>% 
+  pivot_longer(contains("-"),
+               names_to = "months", values_to = "stress_pct")
+```
+
+## Explore / summarise data
+```{r}
+# For each stressor average percentage of columns affected per year
+year_stressor_pct = long_stressor %>% 
+  group_by(year, stressor) %>% 
+  summarise(pct_mean = mean(stress_pct, na.rm = TRUE))
+```
+
+## Pivot wider
+```{r}
+year_stressor_wide = year_stressor_pct %>% 
+  pivot_wider(names_from = "stressor", values_from  = "pct_mean")
+```
