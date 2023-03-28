@@ -15,6 +15,7 @@ This video covers:
 
 
 [![Watch the video](video_thumbnails/finalfit.png)](https://media.ed.ac.uk/media/HealthyR+demoA+finalfit.org/1_ed9ajpct)  
+
 Presented by Riinu Pius and Ewen Harrison, recorded in April 2022.
 
 ## bar plots - geom_bar() or geom_col()?
@@ -28,6 +29,7 @@ This video covers:
 [R Script, including dataset loading (2022-05 folder in this repository)](2022-05)
 
 [![Watch the video](video_thumbnails/geom_bar.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20geom_bar()%20vs%20geom_col()/1_49w03lqk)  
+
 Presented by Riinu Pius and Ewen Harrison, recorded in May 2022.
 
 ## Reproducible example - reprex
@@ -40,6 +42,7 @@ This video covers:
 [R Markdown document including dataset loading (2022-06 folder in this repository)](2022-06)
 
 [![Watch the video](video_thumbnails/reprex.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Reproducible%20examples%20(reprex)/1_zo8af9bg)  
+
 Presented by Riinu Pius and Mathew Thorpe, Recorded in June 2022.
 
 ## Create a global map
@@ -52,6 +55,7 @@ This video covers:
 [R Script including dataset loading (2022-08 folder in this repository)](2022-08)
 
 [![Watch the video](video_thumbnails/globalmap_demo.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Global%20Map/1_sz1b44q4)  
+
 Presented by Riinu Pius and Ewen Harrison, Recorded in August 2022. 
 
 ## Reshape Data
@@ -63,6 +67,7 @@ This video covers:
 [R Script including dataset loading (2022-08 folder in this repository)](2022-08)
 
 [![Watch the video](video_thumbnails/reshape_data.png)](https://media.ed.ac.uk/media/HealthyR%3A%20Reshaping%20Data%20(pivot)/1_wmix0222)
+
 Presented by Riinu Pius, Ewen Harrison and Sarah Elliot, Recorded in August 2022. 
 
 ## Plot Improvements
@@ -75,6 +80,7 @@ This video covers:
 [R Script including dataset loading (2022-09 folder in this repository)](2022-09)
 
 [![Watch the video](video_thumbnails/plot_improvements.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Plot%20Improvements/1_obw1zgc0)
+
 Presented by Ewen Harrison and Sarah Elliot, Recorded in September 2022. 
 
 ## Stringr
@@ -87,6 +93,7 @@ This video covers:
 [R Script including dataset loading (2022-10 folder in this repository)](2022-10)
 
 [![Watch the video](video_thumbnails/stringr.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20stringR/1_2ksr312b)
+
 Presented by Ewen Harrison and Sarah Elliot, Recorded in October 2022. 
 
 ## Joining datasets 
@@ -99,6 +106,7 @@ This video covers:
 [R Script including dataset loading (2022-11 folder in this repository)](2022-11)
 
 [![Watch the video](video_thumbnails/join_demo.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20joining%20datasets/1_wd239kz6)
+
 Presented by Ewen Harrison and Sarah Elliot, Recorded in November 2022. 
 
 ## Table One - finalfit
@@ -111,6 +119,7 @@ This video covers:
 [R Script including dataset loading (2023-03 folder in this repository)](2023-03)
 
 [![Watch the video](video_thumbnails/tableone_finalfit.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Create%20table%20one/1_ivx5th4k)
-Presented by Ewen Harrison and Sarah Elliot, Recorded in November 2022. 
+
+Presented by Ewen Harrison and Sarah Elliot, Recorded in March 2023. 
 
 
