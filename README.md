@@ -54,5 +54,63 @@ This video covers:
 [![Watch the video](video_thumbnails/globalmap_demo.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Global%20Map/1_sz1b44q4)  
 Presented by Riinu Pius and Ewen Harrison, Recorded in August 2022. 
 
+## Reshape Data
+
+This video covers:
+* Prepare your data in a format suitable for analysis 
+* Pivot longer and Pivot wider
+
+[R Script including dataset loading (2022-08 folder in this repository)](2022-08)
+
+[![Watch the video](video_thumbnails/reshape_data.png)](https://media.ed.ac.uk/media/HealthyR%3A%20Reshaping%20Data%20(pivot)/1_wmix0222)
+Presented by Riinu Pius, Ewen Harrison and Sarah Elliot, Recorded in August 2022. 
+
+## Plot Improvements
+
+This video covers:
+* Exploring a new data set 
+* How to create plots using ggplot()
+* Edit plot to create high quality visualisations 
+
+[R Script including dataset loading (2022-09 folder in this repository)](2022-09)
+
+[![Watch the video](video_thumbnails/plot_improvements.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Plot%20Improvements/1_obw1zgc0)
+Presented by Ewen Harrison and Sarah Elliot, Recorded in September 2022. 
+
+## Stringr
+
+This video covers:
+* Using stringr
+* Free text manipulation
+* Regular Expressions
+
+[R Script including dataset loading (2022-10 folder in this repository)](2022-10)
+
+[![Watch the video](video_thumbnails/stringr.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20stringR/1_2ksr312b)
+Presented by Ewen Harrison and Sarah Elliot, Recorded in October 2022. 
+
+## Joining datasets 
+
+This video covers:
+* *_join() from the tidyverse
+* Mutational joins, such as left, right, inner, full
+* Anti_join() and semi_join()
+
+[R Script including dataset loading (2022-11 folder in this repository)](2022-11)
+
+[![Watch the video](video_thumbnails/join_demo.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20joining%20datasets/1_wd239kz6)
+Presented by Ewen Harrison and Sarah Elliot, Recorded in November 2022. 
+
+## Table One - finalfit
+
+This video covers:
+* Explore a new dataset
+* Create a summary table with variables of interest to investigate confounding 
+* Edit this output to create a publishable table 
+
+[R Script including dataset loading (2023-03 folder in this repository)](2023-03)
+
+[![Watch the video](video_thumbnails/tableone_finalfit.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Create%20table%20one/1_ivx5th4k)
+Presented by Ewen Harrison and Sarah Elliot, Recorded in November 2022. 
 
 
