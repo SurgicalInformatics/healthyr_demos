@@ -140,7 +140,7 @@ Presented by Ewen Harrison, Riinu Pius and Sarah Elliot, Recorded in August 2023
 
 This video covers:
 * Producing multiple PDFs automatically
-* Utilising 'Knit with parameters' in the Posit interface
+* Utilising 'Knit with parameters' within the Posit interface
 * Purrr for iteration - using map() and pwalk()
 
 [R Script including dataset loading (2023-03 folder in this repository)](2023-08)  
