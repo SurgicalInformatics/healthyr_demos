@@ -1,0 +1,49 @@
+---
+title: "Data Cleaning"
+author: "HealthyR"
+date: "2023-08-02"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+library(lubridate)
+library(finalfit)
+```
+## Load in data
+```{r}
+ufo_orig = read_csv("demo_ufo_sightings_original.csv")
+```
+```{r}
+ufo_orig = ufo_orig %>% 
+  mutate(reported_date_time = ymd_hms(reported_date_time),
+         reported_date_time_utc = dmy_hm(reported_date_time_utc))
+```
+## Check for outliers
+```{r}
+summary_glimpse = ufo_orig %>% ff_glimpse()
+write_csv(x = summary_glimpse[[2]], file = "summary_glimpse.csv")
+```
+```{r}
+ufo_orig %>%
+  ggplot(aes(x = reported_date_time_utc)) +
+  geom_histogram(bins = 200)
+p = ufo_orig %>%
+  ggplot(aes(x = reported_date_time_utc, y = 1)) +
+  geom_point()
+# plotly::ggplotly(p)
+```
+## Clean data
+```{r}
+## I'm surprised this worked:
+ufo_orig %>% 
+  filter(reported_date_time_utc != "2200-09-07 03:25:00")
+## Used to have to be this:
+ufo_orig %>% 
+  filter(reported_date_time_utc != ymd_hms("2200-09-07 03:25:00"))
+## Another option:
+ufo_orig %>% 
+  filter(reported_date_time_utc <= today())
+```
