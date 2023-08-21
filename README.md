@@ -145,7 +145,7 @@ This video covers:
 
 [R Script including dataset loading (2023-03 folder in this repository)](2023-08)  
 
-[![Watch the video](video_thumbnails/report_parameter.png)](https://media.ed.ac.uk/media/HealthyR%3A%20produce%20multiple%20reports/1_nx07syit)
+[![Watch the video](video_thumbnails/report_parameters.png)](https://media.ed.ac.uk/media/HealthyR%3A%20produce%20multiple%20reports/1_nx07syit)
 
 Presented by Riinu Pius and Sarah Elliot, Recorded in August 2023.
 
