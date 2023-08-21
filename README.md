@@ -122,4 +122,31 @@ This video covers:
 
 Presented by Ewen Harrison and Sarah Elliot, Recorded in March 2023. 
 
+## Cleaning Data 
+
+This video covers:
+* Formatting variables in R
+* Working with dates
+* Out of range values - summarising, visuals, plotly
+* Filter or remove variables
+
+[R Script including dataset loading (2023-03 folder in this repository)](2023-08)  
+
+[![Watch the video](video_thumbnails/data_clean.png)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20cleaning%20data%201/1_oypymgwo)
+
+Presented by Ewen Harrison, Riinu Pius and Sarah Elliot, Recorded in August 2023.
+
+## Automatic Parameterised Reports 
+
+This video covers:
+* Producing multiple PDFs automatically
+* Utilising 'Knit with parameters' in the Posit interface
+* Purrr for iteration - using map() and pwalk()
+
+[R Script including dataset loading (2023-03 folder in this repository)](2023-08)  
+
+[![Watch the video](video_thumbnails/report_parameter.png)](https://media.ed.ac.uk/media/HealthyR%3A%20produce%20multiple%20reports/1_nx07syit)
+
+Presented by Riinu Pius and Sarah Elliot, Recorded in August 2023.
+
 
