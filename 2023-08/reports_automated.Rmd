@@ -1,0 +1,89 @@
+---
+title: "A report of Women's Football World Cup participants"
+author: "HealthyR"
+date: "17-August 2023"
+output: pdf_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(tidyverse)
+library(ggthemes)
+library(countrycode)
+
+wwc_outcomes = readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/wwc_outcomes.csv")
+team_lookup  = read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/codes.csv")
+
+
+## Mapping
+### Create summary table
+countries_takenpart = wwc_outcomes %>% 
+  distinct(team, year) %>% 
+  count(team)
+
+### Change 3 letter codes to country names
+countries_takenpart %>% 
+  mutate(country = countrycode(team, origin = "iso3c", destination = "country.name"))
+#### Countries in our dataset are not ISO coded, so we will use a separate look-up. 
+
+### Join look-up
+countries_takenpart = left_join(countries_takenpart, team_lookup, by = c("team" = "team"))
+
+## Can we map yet?!
+world_map = map_data("world") %>% 
+  filter(! long > 180) %>% 
+  mutate(continent = countrycode(region,
+                               origin = "country.name",
+                               destination = "continent")) %>% 
+  mutate(continent = if_else(region == "Russia", "Asia", continent))
+
+countries = world_map %>% 
+  distinct(region) %>% 
+  rowid_to_column()
+
+### Add our data
+mycountries = left_join(countries, countries_takenpart, by = c("region" = "country"))
+
+### Check our data
+mycountries %>% 
+  filter(!is.na(n))
+### 30 countries - we have lost 6 countries. 
+
+### Do an anti-join!
+anti_join(countries_takenpart, countries, by = c("country" = "region"))
+
+### Solve mismatches
+countries_takenpart = countries_takenpart %>% 
+  mutate(country = case_when(
+    country == "China PR" ~ "China",
+    country == "Ivory Coast (Côte d'Ivoire)" ~ "Ivory Coast",
+    country == "Chinese Taipei" ~ "Taiwan",
+    country == "United States" ~ "USA",
+    TRUE ~ country
+  ))
+
+# Recreate
+mycountries = left_join(countries, countries_takenpart, by = c("region" = "country")) %>% 
+  mutate(continent = countrycode(region,
+                               origin = "country.name",
+                               destination = "continent")) %>% 
+  mutate(continent = if_else(region == "Russia", "Asia", continent)) 
+```
+
+### Map
+
+```{r}
+
+mymap = filter(world_map, continent == "Europe")
+
+mycountries %>% 
+  filter(continent == "Europe") %>% 
+  ggplot(aes(fill = n, map_id = region)) +
+  geom_map(map = mymap) +
+  expand_limits(x = mymap$long, y = mymap$lat) +
+  coord_map("moll") +
+  theme_map()
+```
