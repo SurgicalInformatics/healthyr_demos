@@ -1,0 +1,48 @@
+# Extract year and hour values from date
+
+```{r}
+ufo = ufo_orig %>% 
+  mutate(year = year(reported_date_time), .after = reported_date_time) %>% 
+  mutate(hour = hour(reported_date_time), .after = year)
+
+ufo %>% 
+  count(hour, sort = TRUE)
+```
+
+# Check for duplicates
+
+```{r}
+# library(janitor) - recommended but not used in this demo
+
+# ufo %>% 
+#   distinct(posted_date, .keep_all = TRUE) %>% 
+#   arrange(posted_date)
+
+ufo = ufo %>% 
+  distinct()
+```
+
+
+```{r}
+udo = ufo %>% 
+  mutate(shape = na_if(shape, "unknown"))
+
+# %>% 
+#   # mutate(shape = if_else(shape == "unknown" & another_column == "remove", NA, shape) %>% 
+#   count(shape, sort = TRUE)
+```
+
+
+
+
+```{r}
+library(janitor)
+
+ufo = ufo %>% 
+  clean_names()
+
+
+tibble(`date time` = 1, `animal-measurement` = 1, `Hello this is column name` = 1) %>% 
+  clean_names() %>% 
+  rename(hello = hello_this_is_column_name)
+```
