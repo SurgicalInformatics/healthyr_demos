@@ -159,7 +159,7 @@ This video covers:
 
 [R Script including dataset loading (2023-10 folder in this repository)](2023-10)  
 
-[![Watch the video](video_thumbnails/data_clean2.png)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Data%20Cleaning%202/1_yclggyiq)
+[![Watch the video](video_thumbnails/data_clean2.jpg)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Data%20Cleaning%202/1_yclggyiq)
 
 Presented by Riinu Pius and Sarah Elliot, Recorded in October 2023.
 
