@@ -163,4 +163,46 @@ This video covers:
 
 Presented by Riinu Pius and Sarah Elliot, Recorded in October 2023.
 
+## Reading Multiple Spreadsheets
+
+This video covers:
+* Reading in CSV and XML files into R
+* Working with multiple sheets in one file
+* The difference between binding rows and joining dataframes
+
+[R Script including dataset loading (2023-10 folder in this repository)](2023-10)  
+
+[![Watch the video](video_thumbnails/spreadsheets.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Reading%20multiple%20spreadsheets/1_qtbbw95l)
+
+Presented by Riinu Pius and Sarah Elliot, Recorded in October 2023.
+
+## Quarto 1
+
+This video covers:
+* What is Quarto?
+* Quarto Projects and Documents
+* Executable Options
+* COnditional Content
+
+[R Script including dataset loading (2023-11 folder in this repository)](2023-11)  
+
+[![Watch the video](video_thumbnails/quarto_1.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Quarto%20Part%201%20/1_ii6htaj3)
+
+Presented by Riinu Pius and Sarah Elliot, Recorded in November 2023.
+
+
+## Quarto 2
+
+This video covers:
+* Creating a website
+* Publishing a website 
+* Quarto tips 
+
+[R Script including dataset loading (2023-11 folder in this repository)](2023-11)  
+
+[![Watch the video](video_thumbnails/quarto_2.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Quarto%20Part%202/1_g0ox06lh)
+
+Presented by Riinu Pius and Sarah Elliot, Recorded in November 2023.
+
+
 
