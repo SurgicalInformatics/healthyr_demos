@@ -1,0 +1,92 @@
+---
+title: "Markdown and exporting your plots/tables"
+author: 'Riinu Pius'
+date: today
+format:
+  html: 
+    code-fold: true
+    code-tools: true
+  pdf: default
+  docx: default
+---
+​
+# Data and set-up
+​
+Loading the packages:
+​
+```{r message=FALSE, warning=FALSE}
+​
+library(tidyverse)
+library(knitr)
+library(gapminder)
+​
+```
+​
+We are using the gapminder dataset. This is a document I'm working in, this text will be nicely printed.
+​
+```{r}
+​
+mydata = gapminder %>% 
+  mutate(gdpPercap = round(gdpPercap)) %>% 
+  mutate(pop_millions = round(pop/1e6, 1)) %>% 
+  select(-pop)
+​
+```
+​
+A random sample of rows in the dataset:
+​
+```{r}
+​
+mydata %>% 
+  sample_n(10) %>% 
+  kable()
+​
+```
+​
+Number of variables: `r mydata %>% ncol()`.
+​
+Total number of observations: `r mydata %>% nrow()`.
+​
+# Plotting
+​
+Results can be seen in \@fig-rplot-1
+​
+```{r}
+#| label: fig-rplot
+#| fig-cap: "gapminder GDP per capita vs life expectancy globally"
+#| fig-subcap: 
+#| - "Original plot"
+#| - "New plot"
+#| layout-ncol: 2
+​
+​
+mydata %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(x      = gdpPercap/1000, #divide by 1000 to tidy the x-axis
+             y      = lifeExp,
+             colour = continent,
+             size   = pop_millions)) +
+  geom_point(shape = 1) +
+  theme_bw()
+​
+mydata %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(x      = gdpPercap/1000, #divide by 1000 to tidy the x-axis
+             y      = lifeExp,
+             colour = continent,
+             size   = pop_millions)) +
+  geom_point(shape = 1) +
+  theme_bw() +
+  scale_colour_brewer()
+```
+​
+```{=html}
+<!--
+:::{.content-visible when-profile="teacher"}
+-->
+```
+::: {.content-visible when-format="pdf"}
+# Solutions
+​
+This how we solve this. Don't show it to students!!!! You're doing a great job.
+:::
