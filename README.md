@@ -204,5 +204,33 @@ This video covers:
 
 Presented by Riinu Pius and Sarah Elliot, Recorded in November 2023.
 
+## Venn Diagrams and Upset Plot
+
+This video covers:
+* Venn diagrams 
+* Upset plots
+* Editing diagrams
+
+[R Script including dataset loading (2023-11 folder in this repository)](2024-02)  
+
+[![Watch the video](video_thumbnails/venn.jpg)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Venn%20Diagrams%20and%20Upset%20Plots/1_iw9sulkc)
+
+Presented by Neil Clark and Sarah Elliot, Recorded in February 2024.
+
+
+## Consort/Flow diagrams
+
+This video covers:
+* Data cleaning
+* Consort diagrams with library(consort)
+* PDFs and word documents
+
+
+[R Script including dataset loading (2023-11 folder in this repository)](2024-02)  
+
+[![Watch the video](video_thumbnails/consort.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Venn%20Diagrams%20and%20Upset%20Plots/1_iw9sulkc)
+
+Presented by Riinu Pius and Sarah Elliot, Recorded in February 2024.
+
 
 
