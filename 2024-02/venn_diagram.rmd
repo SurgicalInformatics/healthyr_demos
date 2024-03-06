@@ -1,0 +1,216 @@
+---
+title: "Venn Diagram"
+author: "HealthyR"
+date: "2024-01-16"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Data prep
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(UpSetR)
+library(ggvenn)
+
+# clean names
+heart_df = read_csv("heart_df.csv")%>% 
+  clean_names()
+
+# ggvenn needs a logical format
+heart_df = heart_df %>% 
+  mutate(diabetes = as.logical(diabetes),
+         smoking = as.logical(smoking),
+         obesity = as.logical(obesity),
+         alcohol_consumption = as.logical(alcohol_consumption),
+         medication_use = as.logical(medication_use))
+
+```
+
+Task 1: do some plotting and counts of obesity, smoking, and diabetes. Geom_bar(), count() etc.
+
+
+```{r}
+heart_df %>%
+  ggplot(aes(x=factor(heart_attack_risk), fill=diabetes))+
+  geom_bar()
+```
+
+Task 2: investigate ggvenn() - plot a 2 variable venn diagram 
+
+```{r}
+heart_df %>%
+  ggvenn(columns = c("diabetes", "smoking"))
+```
+
+Task 3: change auto_scale, fill_color, set_name_size, text_size
+
+```{r}
+heart_df %>%
+  ggvenn(columns = c("diabetes", "smoking"),
+         auto_scale = TRUE,
+         fill_color = c("purple", "green"),
+         fill_alpha = 0.5
+```
+
+Task 4: plot a 3 variable venn diagram 
+
+```{r}
+heart_df %>%
+  ggvenn(columns = c("diabetes", "smoking", "obesity", "alcohol_consumption"),
+         auto_scale = FALSE,
+         fill_color = c("purple", "green", "orange", "pink"),
+         fill_alpha = 0.5)
+```
+
+
+Task 5: Upset plots
+
+```{r}
+
+# too many variables for a venn diagram 
+upset_data = heart_df %>% 
+  select(diabetes, obesity, smoking, alcohol_consumption, medication_use) %>% 
+  as.data.frame()
+
+upset_data = upset_data %>% 
+  mutate(across(.cols = everything(), ~as.integer(.))) %>% # turn logical variable to int
+  rename(Diabetes = diabetes,
+         Obesity = obesity,
+         Smoking = smoking,
+         `Alcohol Consumption` = alcohol_consumption,
+         `Medication` = medication_use) 
+```
+
+
+```{r}
+# Make an upset plot
+upset(upset_data, order.by = "freq",
+      mainbar.y.label = "Nuber of patients",
+      main.bar.color = "lightblue",
+      sets.bar.color = c("orange", "purple", "green", "pink", "blue"),
+      #matrix.color = c("orange", "purple", "green", "pink", "blue"),
+      att.color = c("orange", "purple", "green", "pink", "blue"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ANSWERS:
+
+### Data Exploration
+
+```{r}
+heart_df %>% count(diabetes)
+heart_df %>% count(smoking)
+heart_df %>% count(obesity)
+
+heart_df %>% 
+  ggplot(aes(x = heart_attack_risk, fill = diabetes))+
+  geom_bar()
+
+heart_df %>% 
+  ggplot(aes(x = heart_attack_risk, fill = smoking))+
+  geom_bar()
+
+heart_df %>% 
+  ggplot(aes(x = heart_attack_risk, fill = obesity))+
+  geom_bar()
+```
+
+### Venn Diagrams 
+
+```{r}
+
+# ggvenn needs a logical format
+
+
+heart_df %>% 
+  ggvenn(columns = c("diabetes", "smoking"),
+       auto_scale = TRUE)
+
+
+# make the plot look nicer
+heart_df %>% 
+  rename(Diabetes = diabetes,
+         Smoking = smoking) %>% 
+ggvenn(columns = c("Diabetes", "Smoking"),
+       auto_scale = TRUE,
+       fill_color = c("forestgreen", "deepskyblue"),
+      set_name_size = 4,
+       text_size = 3)
+
+# three variables 
+heart_df %>% 
+  rename(Diabetes = diabetes,
+         Smoking = smoking,
+         Obesity = obesity) %>% 
+ggvenn(columns = c("Diabetes", "Smoking", "Obesity"),
+       fill_color = c("forestgreen", "deepskyblue", "coral"),
+      set_name_size = 4,
+       text_size = 3)
+
+# four variables - too complicated!
+heart_df %>% 
+  ggvenn(columns = c("diabetes", "smoking", "obesity", "alcohol_consumption"),
+       fill_color = c("forestgreen", "deepskyblue", "coral", "violetred"),
+      set_name_size = 4,
+       text_size = 3)
+```
+
+### Upset Plot
+
+```{r}
+
+
+upset_data = heart_df %>% 
+  select(diabetes, obesity, smoking, alcohol_consumption, medication_use) %>% 
+  as.data.frame()
+
+upset_data = upset_data %>% 
+  mutate(across(.cols = everything(), ~as.integer(.))) %>% 
+  rename(Diabetes = diabetes,
+         Obesity = obesity,
+         Smoking = smoking,
+         `Alcohol Consumption` = alcohol_consumption,
+         `Medication` = medication_use) 
+
+upset(upset_data, order.by = "freq")
+
+
+upset(upset_data, order.by = "freq",
+      main.bar.color = "plum",
+      sets.bar.color = "steelblue",
+      mainbar.y.label = "Number of Patients")
+```
+
+
+
+
+
+
+
