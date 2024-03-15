@@ -241,7 +241,7 @@ This video covers:
 
 [R Script including dataset loading (2024-03 folder in this repository)](2024-03)  
 
-[![Watch the video](video_thumbnails/forcats.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Forcats/1_kuu9moku)
+[![Watch the video](video_thumbnails/forcats.png)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Forcats/1_kuu9moku)
 
 Presented by Riinu Pius and Sarah Elliot, Recorded in March 2024.
 
