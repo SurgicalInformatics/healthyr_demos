@@ -243,7 +243,31 @@ This video covers:
 
 [![Watch the video](video_thumbnails/forcats.png)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Forcats/1_kuu9moku)
 
-Presented by Riinu Pius and Sarah Elliot, Recorded in March 2024.
+Presented by Riinu Pius and Sarah Elliot, Recorded in February 2024.
 
+## What is Shiny?
 
+This video covers:
+* How to make an interactive web app
+* UI and server 
+* Advanced Examples
+
+[R Script including dataset loading (2024-03 folder in this repository)](2024-03)  
+
+[![Watch the video](video_thumbnails/shiny.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20What%20is%20shiny/1_v1pw3kk7)
+
+Presented by Ewen Harrison and Sarah Elliot, Recorded in March 2024.
+
+## Efficient Plotting
+
+This video covers:
+* Custom plot themes 
+* How to create a function using your theme
+* ggplot
+
+[R Script including dataset loading (2024-03 folder in this repository)](2024-03)  
+
+[![Watch the video](video_thumbnails/plot_functions.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Efficient%20Plotting%20Functions/1_00x2r9j2)
+
+Presented by Riinu Pius and Stella Rhode, Recorded in March 2024.
 
