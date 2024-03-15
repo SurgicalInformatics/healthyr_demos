@@ -90,3 +90,8 @@ server <- function(input, output) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
+
+# advanced examples:
+# https://github.com/riinuots/shinyviz
+# https://github.com/ewenharrison/shinyfit
+# https://argoshare.is.ed.ac.uk/tbs/
