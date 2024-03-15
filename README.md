@@ -267,7 +267,7 @@ This video covers:
 
 [R Script including dataset loading (2024-03 folder in this repository)](2024-03)  
 
-[![Watch the video](video_thumbnails/plot_functions.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Efficient%20Plotting%20Functions/1_00x2r9j2)
+[![Watch the video](video_thumbnails/plot_function.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Efficient%20Plotting%20Functions/1_00x2r9j2)
 
 Presented by Riinu Pius and Stella Rhode, Recorded in March 2024.
 
