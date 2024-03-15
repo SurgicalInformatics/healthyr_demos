@@ -1,0 +1,79 @@
+---
+title: "HealthyR demo: efficient ggplotting"
+format: html
+editor: visual
+execute:
+  echo: true
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+# Dataset
+
+We are using the same dataset as our last few demos - licorice gargle RCT.
+
+```{r}
+#| echo: false
+library(tidyverse)
+
+# Load dataset
+licodata_raw = medicaldata::licorice_gargle
+
+# reading in 0,1, recoding
+licodata = licodata_raw %>% 
+  mutate(preOp_gender.factor = preOp_gender %>% 
+           factor() %>% 
+           fct_recode("Male" = "0",
+                      "Female" = "1"),
+         preOp_asa.factor = preOp_asa %>% 
+           factor() %>% 
+           fct_recode("a normal healthy patient" = "1",
+                      "a patient with mild systemic disease" = "2",
+                      "a patient with severe systemic disease" = "3"),
+         treat.factor = treat %>% 
+           factor() %>% 
+           fct_recode("Sugar 5g" = "0",
+                      "Licorice 0.5g" = "1"),
+         preOp_smoking.factor = preOp_smoking %>% 
+           factor() %>% 
+           fct_recode("Current" = "1",
+                      "Past"    = "2",
+                      "Never"   = "3")
+  )
+```
+
+# Plot of smokers
+
+```{r}
+barplot_count = function(df, var, xlab = ""){
+  df %>% 
+    ggplot(aes(x = {{var}} %>% 
+                 fct_infreq() %>% 
+                 fct_rev())) + 
+    geom_bar(fill = "seagreen3",
+             colour = "seagreen4") + 
+    coord_flip() + 
+    theme_classic() + 
+    geom_label(aes(label = after_stat(count / sum(count)) %>% scales::percent(1)),
+               stat = "count",
+               hjust = 1,
+               size = 5) + 
+    ylab("N Patients") + 
+    xlab(xlab) + 
+    scale_y_continuous(expand = c(0, 0))
+}
+
+```
+
+```{r}
+
+barplot_count(licodata, preOp_smoking.factor, "Smoking")
+
+barplot_count(licodata, treat.factor, "Treatment") 
+
+barplot_count(licodata, preOp_asa.factor, "ASA score")
+
+barplot_count(licodata, preOp_gender.factor, "Gender")
+
+```
