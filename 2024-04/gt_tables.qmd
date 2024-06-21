@@ -1,0 +1,43 @@
+---
+title: "gt tables in Quarto dashboards"
+format: html
+editor: visual
+execute:
+  echo: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+library(emoji)
+eurovision <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv") %>% 
+  filter(section == "final") 
+  # select(year, country = artist_country, rank)
+```
+
+```{r}
+emoji_list = emojis
+
+eurovision %>% 
+  mutate(winner = if_else(rank == 1, emoji("check"), emoji("cross_mark"))) %>% 
+  gt() %>%
+  data_color(column = rank,
+             row = rank < 4,
+             palette = c("gold", "#C0C0C0", "#CD7F32")) %>% 
+  opt_interactive(
+    use_pagination = TRUE,
+    use_pagination_info = TRUE,
+    use_sorting = TRUE,
+    use_search = TRUE,
+    use_filters = TRUE,
+    use_resizers = TRUE,
+    use_highlight = TRUE,
+    use_compact_mode = FALSE,
+    use_text_wrapping = TRUE,
+    use_page_size_select = FALSE,
+    page_size_default = 20,
+    page_size_values = c(10, 25, 50, 100),
+    pagination_type = c("numbers", "jump", "simple")
+  )
+```
