@@ -1,0 +1,348 @@
+---
+title: "DAG demo"
+format: html
+editor: visual
+---
+
+```{r}
+# install.packages("ggdag")
+library(ggdag)
+library(tidyverse)
+```
+1.  Basic DAG
+
+node_size text_size
+
+```{r}
+
+dagify(
+  outcome ~ exposure) %>% 
+    ggdag()
+
+```
+2.  We are investigating the causal relationship between social media use and poor mental health outcomes
+
+```{r}
+dagify(
+  mental_health ~ social_media_use + other_thngs, 
+  other_things ~ yet_more_things) %>% 
+    ggdag()
+```
+
+2.  Add confounders: age and personality type Add mediator: sleep duration
+
+```{r}
+dagify(
+  mental_health ~ social_media_use + age + personality + sleep_duration,
+  sleep_duration ~ social_media_use,
+  social_media_use ~ age + personality
+  ) %>% 
+    ggdag()
+```
+
+3.  Coordinates
+
+manually set coords time ordered
+```{r}
+coords <- list(
+  x = c(mental_health = 5, social_media_use = 0, age = 2.5, personality = 2.5, sleep_duration = 2.5),
+  y = c(mental_health = 1, social_media_use = 1, age = 4, personality = 6, sleep_duration = -1)
+)
+dagify(
+  mental_health ~ social_media_use + age + personality + sleep_duration,
+  sleep_duration ~ social_media_use,
+  social_media_use ~ age + personality,
+  
+  coords = time_ordered_coords()
+  ) %>% 
+    ggdag()
+```
+
+```{r}
+coords <- list(
+  x = c(mental_health = 5, social_media_use = 0, age = 2.5, personality = 2.5, sleep_duration = 2.5),
+  y = c(mental_health = 1, social_media_use = 1, age = 4, personality = 6, sleep_duration = -1)
+)
+dagify(
+  mental_health ~ social_media_use + age + personality + sleep_duration,
+  sleep_duration ~ social_media_use,
+  social_media_use ~ age + personality,
+  
+  coords = coords,
+  
+  exposure = "social_media_use",
+  outcome = "mental_health",
+  
+  labels = c(mental_health = "mental health",
+             social_media_use = "social media use",
+             age = "age",
+             personality = "personality",
+             sleep_duration = "sleep duration")
+  ) %>% 
+    ggdag_status(use_labels = "label",
+                 text = FALSE)
+  
+```
+
+4.  Add labels and status
+
+Within dagify set exposure = "", outcome = "", labels = c( ="")
+
+try ggdag() and ggdag_status()
+
+5.  Add theme
+
+```{r}
+dagify(
+  mental_health ~ social_media_use + age + personality + sleep_duration,
+  sleep_duration ~ social_media_use,
+  social_media_use ~ age + personality,
+  
+  coords = coords,
+  
+  exposure = "social_media_use",
+  outcome = "mental_health",
+  
+  labels = c(mental_health = "mental health",
+             social_media_use = "social media use",
+             age = "age",
+             personality = "personality",
+             sleep_duration = "sleep duration")
+  ) %>% 
+    ggdag_status(use_labels = "label",
+                 text = FALSE)+
+  theme_dag()
+```
+```{r}
+dagify(
+  mental_health ~ social_media_use + age + personality + sleep_duration,
+  sleep_duration ~ social_media_use,
+  social_media_use ~ age + personality,
+  
+  coords = coords,
+  
+  exposure = "social_media_use",
+  outcome = "mental_health",
+  
+  labels = c(mental_health = "mental health",
+             social_media_use = "social media use",
+             age = "age",
+             personality = "personality",
+             sleep_duration = "sleep duration")
+  ) %>% 
+  ggdag_adjustment_set()
+```
+
+
+6.  Dag Usability
+
+open paths (adjust_for) minimal adjustment set
+
+```{r}
+dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = coords,
+  labels = c(
+    poor_mental_health = "Poor Mental Health",
+    social_media = "Social Media Usage",
+    age = "Age (years)",
+    personality = "Personality Type",
+    sleep = "Sleep (hours per night)")) %>% 
+  as_tidy_dagitty() %>% 
+  ggplot(aes(x, y, xend = xend, yend = yend)) +
+  geom_dag_edges() + 
+  geom_dag_point()+
+  #geom_dag_text()+
+  geom_text(aes(label=label, x=x, y=y), color = "blue")
+  
+```
+
+7.  Additional customisations in ggplot
+
+e.g geom_text themes colour palettes
+
+```{r}
+
+dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = coords,
+  labels = c(
+    poor_mental_health = "Poor Mental Health",
+    social_media = "Social Media Usage",
+    age = "Age (years)",
+    personality = "Personality Type",
+    sleep = "Sleep (hours per night)")) %>% 
+  as_tidy_dagitty() %>% 
+
+  ggplot(aes(x, y, xend = xend, yend = yend)) +
+  geom_dag_edges() + 
+  geom_dag_point()+
+  geom_dag_text()+
+
+  
+
+```
+
+### ANSWERS
+
+basic -
+
+```{r}
+set.seed(1)
+dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health") %>% 
+  ggdag(node_size = 20,
+        text_size = 3)
+```
+
+add coordinates -
+
+```{r}
+coords <- list(
+  x = c(social_media = 1, poor_mental_health = 10, age = 3, personality = 5, sleep = 7),
+  y = c(social_media = 5, poor_mental_health = 5, age = 1, personality = 1, sleep = 7)
+)
+```
+
+```{r}
+basic_dag = dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = coords)
+
+basic_dag %>% 
+  ggdag()
+
+
+basic_dag = dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = time_ordered_coords())
+
+basic_dag %>% 
+  ggdag()
+```
+
+add labels and status -
+
+```{r}
+
+basic_dag = dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = coords,
+  labels = c(
+    poor_mental_health = "Poor Mental Health",
+    social_media = "Social Media Usage",
+    age = "Age (years)",
+    personality = "Personality Type",
+    sleep = "Sleep (hours per night)"))
+
+basic_dag %>% 
+  ggdag(use_labels = "label", text = F)
+  
+basic_dag %>% 
+  ggdag_status(use_labels = "label", text = F)
+```
+
+add theme -
+
+```{r}
+basic_dag %>% 
+  ggdag(use_labels = "label", text = F) +
+  theme_dag()
+
+
+basic_dag %>% 
+  ggdag(use_labels = "label", text = F) +
+  theme_dag_grid()
+
+basic_dag %>% 
+  ggdag(use_labels = "label", text = F) +
+  theme_classic()
+```
+
+DAG fetures
+
+```{r}
+# what are the open pathways 
+basic_dag %>% 
+  ggdag_paths()
+
+basic_dag %>% 
+  ggdag_paths(adjust_for = "age")
+
+
+
+# what adjustment set do I need to use?
+basic_dag %>% 
+  ggdag_adjustment_set(shadow = TRUE)
+
+basic_dag %>% 
+  dag_adjustment_sets()
+
+
+basic_dag %>% 
+  ggdag_parents("poor_mental_health")
+
+basic_dag %>% 
+  ggdag_dseparated()
+```
+
+Additional customization
+
+```{r}
+dagify(
+  poor_mental_health ~ social_media + age  + personality + sleep,
+  social_media ~ age + personality,
+  sleep ~ social_media, 
+  exposure = "social_media",
+  outcome = "poor_mental_health",
+  coords = coords,
+  labels = c(
+    poor_mental_health = "Poor Mental Health",
+    social_media = "Social Media Usage",
+    age = "Age (years)",
+    personality = "Personality Type",
+    sleep = "Sleep (hours per night)")) %>% 
+  as_tidy_dagitty() %>% 
+  
+  
+  mutate(extra = case_when(name == "age" ~ "Confounder",
+                           name == "personality" ~ "Confounder",
+                           name == "poor_mental_health" ~ "Outcome",
+                           name == "sleep" ~ "Mediator",
+                           name == "social_media" ~ "Exposure")) %>% 
+
+  ggplot(aes(x, y, xend = xend, yend = yend)) +
+  geom_dag_edges() + 
+  geom_dag_point(size = 20, aes(colour = extra))+
+  # geom_dag_text(size = 2.4)+
+  theme_void()+
+  scale_color_brewer(palette = "Set3")+
+  # theme(legend.position = "none")+
+  geom_text(aes(label = label, x =x, y = y ), size = 3)
+```
+
+edit colours in ggplot: https://stackoverflow.com/questions/71441472/change-color-for-specific-nodes-in-ggdag
