@@ -1,0 +1,111 @@
+---
+title: "Fuzzy Match"
+format: html
+editor: visual
+---
+```{r}
+library(stringdist)
+library(fuzzyjoin)
+library(tidyverse)
+set.seed(1)
+df1 = tibble(
+  name = c("John Doe", "Jane Smith", "Michael Johnson", "Emily Davis", "Brian J. Jones",
+           "Patricia Miller", "Robert Wilson", "Linda Taylor", "David Anderson", "Barbara Thomas",
+           "James Jackson", "Mary White", "Richard Harris", "Susan Martin", "Joseph Thompson",
+           "Margaret Garcia", "Thomas Martinez", "Elizabeth Robinson", "Charles Clark", "Sarah Lewis"),
+  age = sample(20:80, 20, replace = TRUE),
+  bmi = round(runif(20, 18.5, 40), 1),
+  diabetes = sample(c("Yes", "No"), 20, replace = TRUE),
+  hypertension = sample(c("Yes", "No"), 20, replace = TRUE),
+  asthma = sample(c("Yes", "No"), 20, replace = TRUE)
+)
+df2 = tibble(
+  name = c("John Doe", "Jane Smith", "Micheal Johnson", "Emily Davis", "Brian Jones",
+           "Patricia Miller", "Robert Wilson", "Linda Taylor", "DAVID ANDERSON", "Barbara Thomes", "Mr Jackson", "Mary White", "Richard Harris", "Susan Martin", "Joseph Thompson",
+           "Margaret Garica", "Thomas Martinez",  "Liz Robinson", "Charlie Clark", "Sarah Lewis"),
+  oxy_sat = round(runif(20, 90, 100), 1),
+  medication1 = c("Paracetamol", "Amoxicillin", "Metformin", "Insulin", "Acetaminophen", "Paracetemol", "Insulin","Amoxicillin","paracetamol","Paracetamol", "Amoxicillin", "Metformin", "Insulin", "Acetaminophen","Paracetmol", "Diphenhydramine", "Ibuprofen", "Insulin", "Acetaminophen", "Paracetemol") 
+)
+```
+# Joining
+-   inner join or left join
+```{r}
+df3 = df1 %>% 
+  left_join(df2, by = join_by(name))
+```
+# Anti-join
+-   what does not match?
+-   Data wrangling
+```{r}
+df4 = df1 %>% 
+  anti_join(df2, by = join_by(name))
+```
+# Regex - for common mistakes
+-   Could also be done via look-up tables - e.g. different names for drugs
+-   str_detect() (Paracet_mol)
+```{r}
+str_detect(df2$medication1, "Paracet.*")
+df5 = df2 %>% 
+  mutate(medication1 = tolower(medication1), # or str_to_lower()
+         medication1 =  if_else(str_detect(medication1, "paracet.*"),
+                               "paracetamol",
+                               medication1))
+  
+```
+# Difference Score
+-   stringdist()
+-   stringdistmatrix()
+-   stringsim()
+-   amatch()
+-   compares differences (substitutions, deletions, additions) not synonyms/similar words
+-   information on distance method in helptab for stringdist-metrics
+```{r}
+stringdist(df1$name, df2$name, method = c("osa"))
+stringdistmatrix(df1$name, df2$name)
+stringsim(df1$name, df2$name)
+```
+# Fuzzy matching
+-   stringdist_inner_join()
+-   stringdist\_\*\_join()
+-   case sensitive?
+-   maximum distance?
+```{r}
+df6 = df1 %>% 
+  stringdist_left_join(df2, by = "name", 
+                       method = c("soundex"), 
+                       max_dist = 3,
+                       ignore_case = TRUE)
+```
+-   
+-   
+# ANSWERS
+# Joining
+```{r}
+df1 %>% inner_join(df2)
+```
+# Anti-join
+```{r}
+df1 %>% anti_join(df2)
+df2 %>% anti_join(df1)
+```
+# Regex - for common mistakes
+Also can be done via look-up tables
+```{r}
+df2 %>% 
+  mutate(medication1 = case_when(str_detect(medication1, "(?i)paracet[a-z]*mol") ~ "Paracetamol",
+                                .default = medication1))
+```
+# Difference Score
+```{r}
+df1$name %>% stringdist(df2$name)
+df1$name %>% stringdistmatrix(df2$name)
+df1$name %>% stringsim(df2$name)
+df1$name %>% amatch(df2$name, maxDist = 5) # closest match in the list
+```
+# Fuzzy matching
+```{r}
+df1 %>% stringdist_inner_join(df2,
+  ignore_case = FALSE,
+  distance_col = "distance",
+  max_dist = 5)
+```
