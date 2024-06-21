@@ -271,3 +271,42 @@ This video covers:
 
 Presented by Riinu Pius and Stella Rhode, Recorded in March 2024.
 
+## GT and dashboards
+
+This video covers:
+* library(gt) 
+* emojis
+* interactive quarto dashboards
+
+[R Script including dataset loading (2024-04 folder in this repository)](2024-04)  
+
+[![Watch the video](video_thumbnails/GT.jpg)](https://media.ed.ac.uk/playlist/dedicated/1_ccvd72lg/1_qebu9s7b)
+
+Presented by Riinu Pius and Stella Rhode, Recorded in April 2024.
+
+## Directed Acyclic Graphs (DAGs)
+
+This video covers:
+* Dagitty
+* ggdag
+* confounders, mediators, exposures, outcomes etc.
+
+[R Script including dataset loading (2024-04 folder in this repository)](2024-04)  
+
+[![Watch the video](video_thumbnails/DAG.jpg)](https://media.ed.ac.uk/playlist/dedicated/1_ccvd72lg/1_nkwfec1p)
+
+Presented by Sarah Elliot and Neil Clark, Recorded in April 2024.
+
+## Fuzzy Matching
+
+This video covers:
+* regular Expressions
+* Joining data sets  
+* Joining datasets on imperfect matches 
+
+[R Script including dataset loading (2024-05 folder in this repository)](2024-05)  
+
+[![Watch the video](video_thumbnails/fuzzy.jpg)](https://media.ed.ac.uk/playlist/dedicated/1_ccvd72lg/1_udk39v05)
+
+Presented by Sarah Elliot and Ewen Harrison, Recorded in May 2024.
+
