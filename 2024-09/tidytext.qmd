@@ -1,0 +1,144 @@
+---
+title: "Tidytext Demo"
+author: "HealthyR"
+format: html
+editor: visual
+---
+## Tidytext
+<https://juliasilge.shinyapps.io/learntidytext/>
+```{r}
+library(tidyverse)
+library(tidytext)
+library(taylor)
+tswift = taylor_album_songs
+```
+## Explore the data
+```{r}
+# library(finalfit)
+# missing_glimpse(tswift)
+```
+## Unnest the lyrics tibbles
+```{r}
+tswift =
+    taylor_album_songs  %>% 
+    unnest(lyrics)
+```
+unnest_tokens()
+```{r}
+# Use unnest_tokens() to split the lyrics column into individual tokens
+tswift = tswift %>% 
+  unnest_tokens(output = word, input = lyric)
+# tswift %>% 
+#   unnest_tokens(output = word, input = lyric, token = "ngrams", n = 2)
+```
+## Word frequencies
+How frequent is each word? What are the most frequently used words?
+```{r}
+tswift %>% 
+  count(word, sort = TRUE)
+```
+## Stop words
+Here you can access many different stopwords in a tidy format, in different languages/sources.
+```{r}
+stopwords = get_stopwords(language = "en")
+```
+## Remove the stop words from the taylor swift lyrics
+```{r}
+tswift = tswift %>% 
+  filter(!word %in% stopwords$word)
+# tswift %>% 
+#   anti_join(stopwords, by = join_by(word))
+```
+## Sentiment
+```{r}
+sentiments = get_sentiments("bing")
+sentiments %>% count(word, sort = TRUE)
+sentiments %>% 
+  filter(word %in% c("envious", "enviously", "enviousness"))
+sentiments = sentiments %>%
+  filter(!c(word == "envious" & sentiment == "positive")) %>% 
+  filter(!c(word == "enviously" & sentiment == "positive")) %>% 
+  filter(!c(word == "enviousness" & sentiment == "positive")) 
+```
+## Join the token sentiments to the Taylor Swift lyrics
+```{r}
+sentiments %>% count(word, sort = TRUE)
+tswift = left_join(tswift, sentiments, by = join_by(word))
+```
+Make a plot to visualise which albums use more positive vs negative words
+```{r}
+tswift %>% 
+  drop_na(sentiment) %>% 
+  group_by(album_name) %>% 
+  count(sentiment, word, sort = TRUE) %>% 
+  slice_max(n, n = 15) %>%
+  ungroup() %>%
+  ggplot(aes(n, fct_reorder(word, n), fill = album_name)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~album_name, scales = "free") +
+  labs(x = "n", y = NULL)
+```
+# Answers
+## Explore
+```{r}
+tswift %>% 
+  count(album_name)
+```
+## Unnest tokens
+```{r}
+tswift =
+    taylor_album_songs  %>% 
+    unnest(lyrics)
+tidy_taylor = tswift %>% 
+  unnest_tokens(word, lyric)
+# also bigrams
+tidy_taylor2 = tswift %>% 
+  unnest_tokens(bigram, lyric, token = "ngrams", n = 2)
+```
+## Word frequencies
+What are the most frequently used words?
+```{r}
+tidy_taylor %>% 
+  count(word, sort = TRUE)
+```
+## Stop words
+Here you can access many different stopwords in a tidy format, in different languages/sources.
+```{r}
+get_stopwords(language = "en")
+```
+Remove the stop words from the words used in Taylor Swift songs
+```{r}
+tidy_taylor %>% 
+  anti_join(get_stopwords(language = "en")) %>% 
+  count(word, sort = TRUE)
+```
+## Sentiment
+```{r}
+get_sentiments("bing")
+```
+```{r}
+taylor_sentiment = tidy_taylor %>% 
+  inner_join(get_sentiments("bing"))
+```
+```{r}
+# most common positive and negative words used 
+words_count = taylor_sentiment %>% 
+  count(word, sentiment)
+top_words <- words_count %>%
+  group_by(sentiment) %>%
+  slice_max(n, n = 10) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n))
+ggplot(top_words, aes(n, word, fill = sentiment)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ sentiment, scales = "free")
+```
+Lexicons are not foolproof tools: e.g. "like" is being over represented as a positive word
+```{r}
+taylor_sentiment %>% 
+    count(album_name, sentiment)
+taylor_sentiment %>% 
+  ggplot(aes(x = album_name, fill = sentiment)) + 
+  geom_bar(position = "fill") + 
+  coord_flip()
+```
