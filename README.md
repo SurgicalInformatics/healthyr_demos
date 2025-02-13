@@ -310,3 +310,49 @@ This video covers:
 
 Presented by Sarah Elliot and Ewen Harrison, Recorded in May 2024.
 
+## Tidymodels
+This video covers:
+* Tidymodels framework
+* Workflows  
+* Logistic regression and Decision Trees
+
+[R Script including dataset loading (2024-08 folder in this repository)](2024-08)  
+
+[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Tidymodels%20Part%201/1_i8tebh8l)
+
+Presented by Sarah Elliot and Ewen Harrison, Recorded in August 2024.
+
+## Tidytext
+This video covers:
+* Free text analysis
+* Taylor swift lyrics 
+
+[R Script including dataset loading (2024-09 folder in this repository)](2024-09)  
+
+[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20tidytext/1_8nrmkdlg)
+
+Presented by Sarah Elliot and Ewen Harrison, Recorded in September 2024.
+
+## Plotting edits
+This video covers:
+* ggplot() 
+* Aesthetic changes to visualisations
+* Statistical results in plots
+
+[R Script including dataset loading (2024-09 folder in this repository)](2024-09)  
+
+[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Plotting%20edits%20/1_hd8osn0d)
+
+Presented by Sarah Elliot and Neil Clark, Recorded in October 2024.
+
+## Tidymodels Part 2: Resampling
+This video covers:
+* Tidymodels
+* Resamples/bootstraps
+* Model metrics
+
+[R Script including dataset loading (2024-11 folder in this repository)](2024-11)  
+
+[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthtR%20Demo%3A%20Tidymodels%20Part%202/1_eppxvpop)
+
+Presented by Sarah Elliot and Neil Clark, Recorded in November 2024.
