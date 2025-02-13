@@ -1,0 +1,220 @@
+---
+title: "Tidymodels"
+format: html
+editor: visual
+---
+
+# Tidymodels Demo
+
+Tidymodels is a collection of packages for modelling in R. One of the main developers is Max Kuhn, who developed the Caret package, and tidymodels uses a lot of this functionality, in combination with other packages for modelling. Tidymodels utilises tidyverse-style programming.
+
+### Helpful links:
+
+https://www.tmwr.org/ - tidymodels book
+
+https://www.tidymodels.org/find/recipes/ - preprocessing options
+
+https://www.tmwr.org/pre-proc-table.html - example preprocessing recipe
+
+https://www.tidymodels.org/find/parsnip/ - model specification options
+
+## Data
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+
+diabetes = read_csv("diabetes_binary_health_indicators.csv") %>% 
+  sample_n(5000) 
+
+diabetes = diabetes %>% 
+  mutate(across(c("Diabetes_binary", "HighBP", "HighChol", "CholCheck", "Smoker", "Stroke",
+                  "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies", 
+                  "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "DiffWalk", "Sex"), as.factor)) %>% 
+  mutate(added = 1,
+         subjid = 1:n(),
+         Diabetes_binary = case_when(Diabetes_binary == "1" ~ "Yes",
+                                     Diabetes_binary == "0" ~ "No",
+                                     .default = NA) %>% fct_relevel("Yes"))
+
+
+diabetes %>% 
+  glimpse()
+
+diabetes = diabetes %>% 
+  janitor::clean_names()
+
+```
+
+## Data Split
+
+```{r}
+split = diabetes %>% initial_split(prop = 0.8)
+diabetes_train = training(split)
+diabetes_test = testing(split)
+```
+
+## Recipes
+
+https://www.tidymodels.org/find/recipes/
+
+-   remove columns with zero varience
+-   create dummy variable
+-   change role - update_role()
+
+```{r}
+diabetes_recipe = 
+  recipe(diabetes_binary ~ ., data = diabetes_train) %>% 
+  step_zv() %>% 
+  step_
+```
+
+## Specifications
+
+https://www.tidymodels.org/find/parsnip/
+
+Start with decision tree
+
+Change to logistic regression?
+
+```{r}
+
+diabetes_tree_spec = decision_tree(cost_complexity = 0.0001) %>%
+  set_engine("rpart") %>% 
+  set_mode("classification") 
+
+```
+
+## Workflows
+
+Use workflow()
+
+```{r}
+diabetes_workflow = 
+  workflow() %>% 
+  add_recipe(_) %>% 
+  add_model(_)
+
+diabetes_fit = 
+  fit(_)
+```
+
+## Data Metrics
+
+roc_auc() roc_curve() conf_mat()
+
+```{r}
+# predict with augment()
+augment(diabetes_fit, new_data = diabetes_train)
+
+
+
+```
+
+## Evaluate Test Set
+
+last_fit() Using workflow and data split
+
+```{r}
+
+```
+
+# ANSWERS
+
+## Recipes
+
+https://www.tidymodels.org/find/recipes/
+
+-   remove columns with zero varience
+
+-   create dummy variable
+
+-   normalise
+
+-   change role
+
+```{r}
+diabetes_recipe = 
+  recipe(diabetes_binary ~ ., data = diabetes_train) %>% 
+  step_zv() %>% 
+  step_dummy() %>% 
+  update_role(subjid, new_role = "id") 
+
+diabetes_recipe %>% prep() %>% juice()
+```
+
+## Specifications
+
+https://www.tidymodels.org/find/parsnip/
+
+Start with decision tree
+
+Change to logistic regression?
+
+```{r}
+diabetes_tree_spec = decision_tree(cost_complexity = 0.0001) %>%
+  set_engine("rpart") %>% 
+  set_mode("classification") 
+
+diabetes_lr_spec = logistic_reg() %>%
+  set_engine("glm") %>%
+  set_mode("classification")
+```
+
+## Workflows
+
+Use workflow()
+
+```{r}
+diabetes_workflow = 
+  workflow() %>% 
+  add_recipe(diabetes_recipe) %>% 
+  add_model(diabetes_tree_spec)
+
+diabetes_fit = 
+  fit(diabetes_workflow, diabetes_train)
+```
+
+## Data Metrics
+
+```{r}
+# predict with augment()
+augment(diabetes_fit, new_data = diabetes_train)%>%
+  roc_auc(truth = diabetes_binary, .pred_Yes)
+
+augment(diabetes_fit, new_data = diabetes_train)%>%
+  roc_curve(truth = diabetes_binary, .pred_Yes) %>% 
+  autoplot()
+
+augment(diabetes_fit, new_data = diabetes_train)%>%
+  conf_mat(truth = diabetes_binary, .pred_class) %>% 
+  autoplot(type = "heatmap")
+```
+
+## Evaluate
+
+```{r}
+diabetes_fit_final = last_fit(diabetes_workflow, split) 
+
+collect_metrics(diabetes_fit_final)
+```
+
+## Resamples
+
+```{r}
+diabetes_folds = bootstraps(diabetes_train)
+
+
+resample_diabetes = 
+  fit_resamples(diabetes_workflow, diabetes_folds, metrics = metric_set(accuracy, roc_auc, brier_class), 
+                         control = control_resamples(save_pred = TRUE))
+
+resample_diabetes %>% 
+  collect_predictions() %>% 
+  roc_auc(truth = diabetes_binary, .pred_Yes) 
+
+resample_diabetes %>% 
+  collect_predictions() %>% 
+  roc_curve(truth = diabetes_binary, .pred_Yes) %>%
+  autoplot()
+```
