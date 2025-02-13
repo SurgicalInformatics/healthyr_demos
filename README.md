@@ -318,7 +318,7 @@ This video covers:
 
 [R Script including dataset loading (2024-08 folder in this repository)](2024-08)  
 
-[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Tidymodels%20Part%201/1_i8tebh8l)
+[![Watch the video](video_thumbnails/tidymodels1.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20Tidymodels%20Part%201/1_i8tebh8l)
 
 Presented by Sarah Elliot and Ewen Harrison, Recorded in August 2024.
 
@@ -329,7 +329,7 @@ This video covers:
 
 [R Script including dataset loading (2024-09 folder in this repository)](2024-09)  
 
-[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20tidytext/1_8nrmkdlg)
+[![Watch the video](video_thumbnails/tidytext.PNG)](https://media.ed.ac.uk/media/HealthyR%20demo%3A%20tidytext/1_8nrmkdlg)
 
 Presented by Sarah Elliot and Ewen Harrison, Recorded in September 2024.
 
@@ -341,7 +341,7 @@ This video covers:
 
 [R Script including dataset loading (2024-09 folder in this repository)](2024-09)  
 
-[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Plotting%20edits%20/1_hd8osn0d)
+[![Watch the video](video_thumbnails/plotting_stat.PNG)](https://media.ed.ac.uk/media/HealthyR%20Demo%3A%20Plotting%20edits%20/1_hd8osn0d)
 
 Presented by Sarah Elliot and Neil Clark, Recorded in October 2024.
 
@@ -353,6 +353,6 @@ This video covers:
 
 [R Script including dataset loading (2024-11 folder in this repository)](2024-11)  
 
-[![Watch the video](video_thumbnails/tidymodels.PNG)](https://media.ed.ac.uk/media/HealthtR%20Demo%3A%20Tidymodels%20Part%202/1_eppxvpop)
+[![Watch the video](video_thumbnails/tidymodels2.PNG)](https://media.ed.ac.uk/media/HealthtR%20Demo%3A%20Tidymodels%20Part%202/1_eppxvpop)
 
 Presented by Sarah Elliot and Neil Clark, Recorded in November 2024.
