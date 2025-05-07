@@ -1,0 +1,3119 @@
+1
+00:00:04,160 --> 00:00:08,100
+There we go. We're
+recording now. Hi everyone.
+
+2
+00:00:08,100 --> 00:00:10,379
+Welcome to the First Healthy,
+
+3
+00:00:10,379 --> 00:00:12,120
+R clinic of 2024.
+
+4
+00:00:12,120 --> 00:00:14,299
+Hope everyone had a really
+nice festive season
+
+5
+00:00:14,299 --> 00:00:17,120
+and is looking forward
+to the New Year.
+
+6
+00:00:17,120 --> 00:00:21,380
+Today we're going to be doing
+our demo on venn diagrams,
+
+7
+00:00:21,380 --> 00:00:22,719
+which is a requested demo.
+
+8
+00:00:22,719 --> 00:00:24,800
+If anyone ever has any requests
+
+9
+00:00:24,800 --> 00:00:27,639
+of topics they'd
+like us to cover,
+
+10
+00:00:28,450 --> 00:00:30,690
+I like to try and tailor
+
+11
+00:00:30,690 --> 00:00:32,510
+the clinics to things
+that people actually
+
+12
+00:00:32,510 --> 00:00:34,929
+find useful and helpful
+
+13
+00:00:34,929 --> 00:00:37,249
+and might help their
+day to day life.
+
+14
+00:00:37,249 --> 00:00:40,550
+We really appreciate requests.
+
+15
+00:00:40,550 --> 00:00:44,830
+Today you've got Neil with me
+who is sharing his screen.
+
+16
+00:00:44,830 --> 00:00:50,669
+This is just IDE or
+R studio interface
+
+17
+00:00:50,669 --> 00:00:54,950
+on Posit Cloud link
+is in the chat,
+
+18
+00:00:54,950 --> 00:01:00,709
+it just shows us right now
+it's the three panels.
+
+19
+00:01:00,709 --> 00:01:02,509
+But if you open up
+
+20
+00:01:02,509 --> 00:01:04,230
+the R markdown document that's
+
+21
+00:01:04,230 --> 00:01:06,049
+called one underscore venn
+
+22
+00:01:06,049 --> 00:01:08,889
+yes that one there we'll
+
+23
+00:01:08,889 --> 00:01:11,510
+see the four panels that
+we're used to seeing.
+
+24
+00:01:11,510 --> 00:01:18,329
+The top left is the bottom
+left is the console top right,
+
+25
+00:01:18,850 --> 00:01:21,250
+our environment where our
+
+26
+00:01:21,250 --> 00:01:25,989
+import imported
+datasets will end up.
+
+27
+00:01:25,989 --> 00:01:27,770
+And then the bottom
+right is where
+
+28
+00:01:27,770 --> 00:01:31,849
+all our scripts and
+files are saved.
+
+29
+00:01:31,849 --> 00:01:34,389
+A few other tabs that
+do different things,
+
+30
+00:01:34,389 --> 00:01:37,130
+but they are less
+important Right now,
+
+31
+00:01:39,350 --> 00:01:43,669
+Neil has opened up the
+R markdown document,
+
+32
+00:01:43,669 --> 00:01:44,970
+which is a place
+where we can type
+
+33
+00:01:44,970 --> 00:01:47,250
+our code and also free text.
+
+34
+00:01:47,250 --> 00:01:49,809
+It's made up of a few things.
+
+35
+00:01:49,809 --> 00:01:52,050
+It's got the yaml
+at the very top,
+
+36
+00:01:52,050 --> 00:01:55,749
+where is where you set
+a bunch of metadata.
+
+37
+00:01:55,749 --> 00:01:57,350
+Things like the title
+of the document,
+
+38
+00:01:57,350 --> 00:01:58,970
+the author, the date,
+
+39
+00:01:58,970 --> 00:02:04,534
+and lots of other different
+customisable options.
+
+40
+00:02:04,534 --> 00:02:07,739
+Then we've got this
+grayed out section
+
+41
+00:02:07,739 --> 00:02:10,059
+which is code chunk.
+
+42
+00:02:10,059 --> 00:02:15,280
+It's in the grade sections
+that we type our R code.
+
+43
+00:02:15,280 --> 00:02:17,800
+And then in the white sections
+
+44
+00:02:17,800 --> 00:02:20,599
+where we can write free text.
+
+45
+00:02:22,840 --> 00:02:25,179
+Don't scroll right
+to the bottom of
+
+46
+00:02:25,179 --> 00:02:26,759
+the document because I have
+
+47
+00:02:26,759 --> 00:02:29,719
+some answers just in
+
+48
+00:02:29,719 --> 00:02:31,960
+case we want to have
+a check of those.
+
+49
+00:02:31,960 --> 00:02:34,080
+But can you make
+
+50
+00:02:34,080 --> 00:02:37,679
+the script quadrant a
+
+51
+00:02:37,679 --> 00:02:39,619
+bit bigger and
+then maybe zoom in
+
+52
+00:02:39,619 --> 00:02:42,340
+slightly to make the
+text slightly bigger?
+
+53
+00:02:42,340 --> 00:02:47,899
+Hey, is it okay?
+
+54
+00:02:47,899 --> 00:02:55,939
+Yeah, that looks good
+If you scroll down,
+
+55
+00:02:55,939 --> 00:03:00,079
+if you just run the
+data prep chunk that
+
+56
+00:03:00,079 --> 00:03:06,900
+I've made which has the packages
+that we're going to use,
+
+57
+00:03:07,300 --> 00:03:11,419
+then just a few little bits.
+
+58
+00:03:11,419 --> 00:03:15,680
+Tidy verse is a package
+that we frequently use,
+
+59
+00:03:15,680 --> 00:03:19,599
+really good for data
+data wrangling.
+
+60
+00:03:19,599 --> 00:03:21,679
+You can see there all
+the packages that it
+
+61
+00:03:21,679 --> 00:03:25,900
+loads in table Tidlist,
+
+62
+00:03:25,900 --> 00:03:29,570
+cetera, M. Then there
+
+63
+00:03:29,570 --> 00:03:31,389
+was a GG Ven package
+that we're going to be
+
+64
+00:03:31,389 --> 00:03:34,290
+using for making our
+ven diagrams today.
+
+65
+00:03:34,530 --> 00:03:37,889
+Janitor is just one
+
+66
+00:03:37,889 --> 00:03:40,790
+that I've used for this
+clean names function,
+
+67
+00:03:40,790 --> 00:03:43,709
+which is just a
+quick way to remove
+
+68
+00:03:43,709 --> 00:03:46,189
+special characters
+and spaces from
+
+69
+00:03:46,189 --> 00:03:49,909
+your column headings to
+make it a bit cleaner,
+
+70
+00:03:49,909 --> 00:03:54,369
+Upset R is something that
+we're going to demonstrate
+
+71
+00:03:54,369 --> 00:03:58,874
+at the end when venn diagrams
+get a bit complicated.
+
+72
+00:03:58,874 --> 00:04:04,859
+Excellent. Neil,
+could you start off,
+
+73
+00:04:04,859 --> 00:04:07,840
+we've got a fresh dataset.
+
+74
+00:04:07,840 --> 00:04:09,319
+Don't know much about it.
+
+75
+00:04:09,319 --> 00:04:12,340
+Would you be able to open
+
+76
+00:04:12,340 --> 00:04:13,959
+up the dataset,
+have a look at it,
+
+77
+00:04:13,959 --> 00:04:17,479
+and then maybe try
+doing a few counts
+
+78
+00:04:17,479 --> 00:04:23,360
+on obesity, smoking, diabetes.
+
+79
+00:04:23,360 --> 00:04:25,399
+I should say quickly,
+
+80
+00:04:25,399 --> 00:04:28,599
+this is a dataset found online
+
+81
+00:04:28,599 --> 00:04:32,579
+from the tidy Tuesday database,
+
+82
+00:04:32,579 --> 00:04:34,999
+which is just made
+
+83
+00:04:34,999 --> 00:04:39,620
+it a really cool
+
+84
+00:04:39,620 --> 00:04:41,060
+location to get lots of
+
+85
+00:04:41,060 --> 00:04:44,700
+online datasets to practise
+your coding skills.
+
+86
+00:04:44,700 --> 00:04:47,280
+This is just looking at
+
+87
+00:04:48,400 --> 00:04:51,640
+like a heart health
+database kind of thing.
+
+88
+00:04:51,640 --> 00:04:54,640
+And I've just filtered
+for 5,000 observations.
+
+89
+00:04:54,640 --> 00:04:56,420
+So yeah, sorry, rambling.
+
+90
+00:04:56,420 --> 00:04:57,919
+Now over to you if you can.
+
+91
+00:04:57,919 --> 00:04:59,380
+So what I always like to do is
+
+92
+00:04:59,380 --> 00:05:01,200
+just click on the
+dataset and just have,
+
+93
+00:05:01,200 --> 00:05:05,400
+have a look at the visual
+
+94
+00:05:05,400 --> 00:05:09,279
+just to get a feel
+for what's there.
+
+95
+00:05:09,279 --> 00:05:14,820
+So I can see we've got 26
+columns here, 5,000 rows.
+
+96
+00:05:14,820 --> 00:05:17,259
+We've got patient ID,
+
+97
+00:05:17,259 --> 00:05:19,939
+some demographic information,
+
+98
+00:05:19,939 --> 00:05:26,080
+cholesterol measures of
+blood pressure, heartbreak.
+
+99
+00:05:26,880 --> 00:05:31,960
+Family, history, smoking.
+
+100
+00:05:31,960 --> 00:05:35,360
+Okay. All kinds of information.
+
+101
+00:05:35,360 --> 00:05:44,670
+Stress level. Is that
+like a self assessed?
+
+102
+00:05:44,670 --> 00:05:47,710
+General life stress measure.
+
+103
+00:05:47,710 --> 00:05:50,870
+Good question. I'm not sure.
+
+104
+00:05:50,870 --> 00:05:53,989
+Yeah, I guess it's
+maybe self assessed.
+
+105
+00:05:53,989 --> 00:05:56,090
+I didn't quite learn about
+
+106
+00:05:56,090 --> 00:06:00,509
+how the variables were made.
+I wonder what it means.
+
+107
+00:06:00,509 --> 00:06:07,250
+Okay, Someone's getting nine
+out 10 hours sleep a day.
+
+108
+00:06:07,250 --> 00:06:11,230
+Look at them, what's
+their stress level?
+
+109
+00:06:11,230 --> 00:06:14,709
+Stress level seven.
+
+110
+00:06:15,350 --> 00:06:18,310
+Okay. All right.
+
+111
+00:06:18,310 --> 00:06:24,750
+Right. Okay. So we've got all
+kinds of information on it.
+
+112
+00:06:24,750 --> 00:06:27,550
+Looks like 5,000 individuals.
+
+113
+00:06:33,030 --> 00:06:36,669
+Yeah. And the reason
+
+114
+00:06:36,669 --> 00:06:38,809
+some of them are true
+and false is because
+
+115
+00:06:38,809 --> 00:06:41,470
+I earlier in the script
+
+116
+00:06:41,470 --> 00:06:43,549
+changed it to true and false as
+
+117
+00:06:43,549 --> 00:06:44,989
+opposed to a binary one or zero.
+
+118
+00:06:44,989 --> 00:06:46,510
+Because that just makes
+it much easier for
+
+119
+00:06:46,510 --> 00:06:48,249
+using the GG package.
+
+120
+00:06:48,249 --> 00:06:51,089
+But it's showing the
+same kind of binary.
+
+121
+00:06:51,089 --> 00:06:55,389
+Yes. No content.
+
+122
+00:07:03,710 --> 00:07:07,970
+So we've got different
+countries here,
+
+123
+00:07:07,970 --> 00:07:11,670
+so we could say, we could do
+
+124
+00:07:25,590 --> 00:07:33,110
+sort, sort that.
+
+125
+00:07:34,870 --> 00:07:37,529
+Okay. So it's quite evenly
+
+126
+00:07:37,529 --> 00:07:40,630
+distributed across
+different countries.
+
+127
+00:07:42,230 --> 00:07:48,549
+So there's 200 and odd
+from each country.
+
+128
+00:07:50,790 --> 00:07:54,830
+What else might
+be interested in?
+
+129
+00:07:58,430 --> 00:08:01,769
+I'm going to go to that
+stress level variable.
+
+130
+00:08:01,769 --> 00:08:08,710
+I want to see. I'm not sure
+
+131
+00:08:08,710 --> 00:08:14,810
+that it's quite evenly
+
+132
+00:08:14,810 --> 00:08:17,069
+distributed over
+stress levels as well.
+
+133
+00:08:17,069 --> 00:08:26,060
+Yeah, what kind of
+
+134
+00:08:26,060 --> 00:08:27,939
+questions are we going
+to be asking about
+
+135
+00:08:27,939 --> 00:08:33,880
+this data for this example?
+
+136
+00:08:33,880 --> 00:08:37,299
+These are all people that are,
+
+137
+00:08:40,060 --> 00:08:45,300
+it's information on their heart.
+
+138
+00:08:45,860 --> 00:08:51,640
+These are all people are
+
+139
+00:08:51,640 --> 00:08:55,380
+potentially at risk of
+having a heart attack.
+
+140
+00:08:59,010 --> 00:09:01,469
+What we're going
+to be looking at,
+
+141
+00:09:01,469 --> 00:09:02,970
+what we're going to
+be looking at with
+
+142
+00:09:02,970 --> 00:09:06,569
+the Venn diagrams is
+plotting the co morbidities
+
+143
+00:09:06,569 --> 00:09:12,749
+or other symptoms that these
+people are experiencing.
+
+144
+00:09:12,749 --> 00:09:14,249
+For example, we're
+going to be looking
+
+145
+00:09:14,249 --> 00:09:16,729
+at whether or not
+they're smokers,
+
+146
+00:09:16,729 --> 00:09:20,670
+alcohol intake, et cetera.
+
+147
+00:09:20,670 --> 00:09:22,929
+Just to have a visualisation of
+
+148
+00:09:22,929 --> 00:09:25,489
+the co morbidities that
+these people that all have
+
+149
+00:09:25,489 --> 00:09:31,649
+a history of heart disease have.
+
+150
+00:09:39,810 --> 00:09:43,529
+Should I make a plot, Sarah?
+
+151
+00:09:44,330 --> 00:09:47,929
+Yeah, I think plotting
+your data before
+
+152
+00:09:47,929 --> 00:09:50,509
+you try and jump
+
+153
+00:09:50,509 --> 00:09:52,870
+into anything complicated
+is always really important.
+
+154
+00:09:52,870 --> 00:09:57,250
+So maybe if you try
+doing a bar plot,
+
+155
+00:09:59,150 --> 00:10:02,069
+if you do heart attack risk on
+
+156
+00:10:02,069 --> 00:10:06,709
+the x axis and then fill
+the colour based on
+
+157
+00:10:06,950 --> 00:10:12,689
+diabetes and then
+just have a check and
+
+158
+00:10:12,689 --> 00:10:18,710
+then do a geom_bar and have
+a look at that risk.
+
+159
+00:10:19,510 --> 00:10:23,030
+Is that right, fill, fill
+
+160
+00:10:25,150 --> 00:10:28,690
+What it was called
+diabetes or just any
+
+161
+00:10:28,690 --> 00:10:33,470
+of the comorbidity variables.
+
+162
+00:10:36,250 --> 00:10:38,610
+Perfect.
+
+163
+00:10:39,490 --> 00:10:44,230
+There we are. Now we've got
+a really quick plot though.
+
+164
+00:10:44,230 --> 00:10:46,510
+It's zoom out slightly.
+
+165
+00:10:46,510 --> 00:10:48,750
+It's showing us the counts
+
+166
+00:10:48,750 --> 00:10:51,769
+of heart attack risk
+
+167
+00:10:51,769 --> 00:10:54,590
+is currently viewed as
+a numeric variable,
+
+168
+00:10:54,590 --> 00:10:58,309
+which is why that is giving
+
+169
+00:10:58,309 --> 00:11:03,190
+us a continuous scale as
+opposed to just one or zero.
+
+170
+00:11:03,190 --> 00:11:05,509
+Could you change that quickly?
+
+171
+00:11:05,509 --> 00:11:08,129
+Just make it a factor?
+
+172
+00:11:10,660 --> 00:11:13,899
+So am I allowed to do that?
+
+173
+00:11:13,899 --> 00:11:17,100
+Just in here at Yeah, you can.
+
+174
+00:11:17,100 --> 00:11:25,180
+I what Neil is doing
+
+175
+00:11:25,180 --> 00:11:28,919
+is changing the x variable to
+
+176
+00:11:28,919 --> 00:11:31,559
+a factor as opposed
+to changing it in
+
+177
+00:11:31,559 --> 00:11:34,400
+the entire dataset because
+we're just caring about it.
+
+178
+00:11:34,400 --> 00:11:35,939
+In this quick instance,
+
+179
+00:11:35,939 --> 00:11:38,979
+you can just put it into the
+aesthetics bracket there.
+
+180
+00:11:38,979 --> 00:11:41,179
+When you scroll down,
+you'll see that it's
+
+181
+00:11:41,179 --> 00:11:45,759
+changed x axis, it's Fct,
+
+182
+00:11:45,759 --> 00:11:47,860
+but you can see that
+it's now 1.0 as
+
+183
+00:11:47,860 --> 00:11:50,060
+opposed to a continuous scale,
+
+184
+00:11:50,060 --> 00:11:52,200
+which wasn't correct because
+
+185
+00:11:52,200 --> 00:11:54,099
+even though it's
+1.0 we know that
+
+186
+00:11:54,099 --> 00:11:58,300
+that's a two level
+factor, not a number.
+
+187
+00:11:58,300 --> 00:12:02,319
+As now you can see that there's
+
+188
+00:12:02,440 --> 00:12:09,440
+over 3,000 people that are not
+at risk of a heart attack,
+
+189
+00:12:09,700 --> 00:12:14,120
+under 2000 people
+that are at risk.
+
+190
+00:12:14,120 --> 00:12:16,200
+And you can just
+see how the spread
+
+191
+00:12:16,200 --> 00:12:18,279
+of those patients that have
+
+192
+00:12:18,279 --> 00:12:24,020
+diabetes split between
+those two patients.
+
+193
+00:12:24,020 --> 00:12:25,560
+Yeah, just like you're saying,
+
+194
+00:12:25,560 --> 00:12:28,120
+counts and plots are really
+important thing to do at
+
+195
+00:12:28,120 --> 00:12:29,880
+the very beginning
+just so that you can
+
+196
+00:12:29,880 --> 00:12:31,940
+get to grips with your data,
+
+197
+00:12:31,940 --> 00:12:34,479
+you can see if there's
+any abnormalities,
+
+198
+00:12:34,479 --> 00:12:38,779
+anything that you don't
+expect, et cetera.
+
+199
+00:12:38,779 --> 00:12:41,060
+Now for the sake of time,
+
+200
+00:12:41,060 --> 00:12:45,200
+we will jump into the
+actual Venn diagram part
+
+201
+00:12:45,200 --> 00:12:49,790
+of creating this diagram,
+
+202
+00:12:49,790 --> 00:12:53,910
+the bend diagram part
+of the diagram demo.
+
+203
+00:12:54,670 --> 00:12:58,069
+I hadn't made many Ben diagrams
+
+204
+00:12:58,069 --> 00:13:00,889
+in R before this
+request came in.
+
+205
+00:13:00,889 --> 00:13:02,630
+Did a bit of research
+
+206
+00:13:02,630 --> 00:13:04,349
+and there are lots
+of ways to do it.
+
+207
+00:13:04,349 --> 00:13:08,349
+There's a package
+called venndiagram,
+
+208
+00:13:08,730 --> 00:13:11,310
+which is quite popular to use,
+
+209
+00:13:11,310 --> 00:13:14,269
+but I found it quite
+complicated and clunky and
+
+210
+00:13:14,269 --> 00:13:17,589
+you add to input a lot
+of the numbers manually.
+
+211
+00:13:17,589 --> 00:13:19,969
+Instead, we're going to
+be using this function,
+
+212
+00:13:19,969 --> 00:13:24,009
+ggvenn, which is from
+the ggvenn package.
+
+213
+00:13:24,009 --> 00:13:30,489
+Which flows much more nicely
+into a tidy verse work flow.
+
+214
+00:13:30,489 --> 00:13:32,549
+But just to let you
+know that there's
+
+215
+00:13:32,549 --> 00:13:34,669
+other options out there.
+
+216
+00:13:34,669 --> 00:13:37,370
+What we're going to
+start with now, Neil,
+
+217
+00:13:37,370 --> 00:13:39,029
+is as always going to start with
+
+218
+00:13:39,029 --> 00:13:42,530
+our dataset and pipe
+into the function ggvenn.
+
+219
+00:13:49,690 --> 00:13:54,609
+Yes.
+
+220
+00:14:00,770 --> 00:14:06,009
+At its basic, all you
+really need to do is
+
+221
+00:14:06,009 --> 00:14:08,049
+specify the columns that
+
+222
+00:14:08,049 --> 00:14:10,710
+you want to be included
+in this V diagram.
+
+223
+00:14:10,710 --> 00:14:20,310
+If you do columns equals and
+then do a combined like a C,
+
+224
+00:14:20,310 --> 00:14:24,829
+open brackets for this
+one we're going to do,
+
+225
+00:14:24,829 --> 00:14:26,809
+you can do whatever
+variables you're looking
+
+226
+00:14:26,809 --> 00:14:28,590
+at but why don't we do diabetes
+
+227
+00:14:28,590 --> 00:14:30,669
+and smoking and just to see how
+
+228
+00:14:30,669 --> 00:14:39,049
+those two variables
+overlap and then run that.
+
+229
+00:14:41,850 --> 00:14:45,489
+The variables have to
+be in quotations for
+
+230
+00:14:45,489 --> 00:14:50,489
+this yes
+
+231
+00:14:51,290 --> 00:15:00,139
+object just like that.
+
+232
+00:15:00,139 --> 00:15:02,539
+It's done all the
+counting up for us.
+
+233
+00:15:02,539 --> 00:15:04,800
+It has to be in a logical format
+
+234
+00:15:04,800 --> 00:15:08,480
+which was why they were
+all true and false before.
+
+235
+00:15:08,680 --> 00:15:10,219
+But that's just a really
+quick and easy way
+
+236
+00:15:11,759 --> 00:15:14,960
+to get a really
+simple venn diagram.
+
+237
+00:15:14,960 --> 00:15:16,680
+You can see it's got
+
+238
+00:15:16,680 --> 00:15:21,279
+the overlap and the two
+numbers at the side.
+
+239
+00:15:21,560 --> 00:15:24,620
+When you say to be
+a logical format,
+
+240
+00:15:24,620 --> 00:15:28,680
+does that mean that these
+variables, diabetes,
+
+241
+00:15:28,680 --> 00:15:33,640
+these have to be true false
+smoking To be true false,
+
+242
+00:15:33,640 --> 00:15:36,300
+it can't be 10 anything.
+
+243
+00:15:36,300 --> 00:15:38,260
+Yeah, it can't be 10,
+
+244
+00:15:38,260 --> 00:15:41,159
+even if it's viewed as a factor.
+
+245
+00:15:42,560 --> 00:15:46,260
+Logical format is what
+you need to change it to.
+
+246
+00:15:46,260 --> 00:15:48,160
+But that's really simple.
+If you scroll up slightly,
+
+247
+00:15:48,160 --> 00:15:54,760
+can I did it for us at
+the very beginning here?
+
+248
+00:15:54,760 --> 00:15:58,119
+Slightly as logic,
+
+249
+00:16:01,080 --> 00:16:03,899
+it's really quick and
+easy thing to do,
+
+250
+00:16:03,899 --> 00:16:08,060
+just as you would change things
+to a factor or a number.
+
+251
+00:16:08,060 --> 00:16:13,200
+You can also change it to
+a logical output there.
+
+252
+00:16:14,760 --> 00:16:19,560
+But yes, if you scroll
+down again to the diagram,
+
+253
+00:16:19,560 --> 00:16:21,699
+this was a really quick
+and easy way to do it.
+
+254
+00:16:21,699 --> 00:16:24,259
+But what I don't
+like about it is
+
+255
+00:16:24,259 --> 00:16:28,590
+that the circles are equal.
+
+256
+00:16:28,590 --> 00:16:31,489
+Sizes might be a bit misleading.
+
+257
+00:16:31,489 --> 00:16:33,529
+It looks like the smokers
+
+258
+00:16:33,529 --> 00:16:36,010
+and those that have
+diabetes is quite easy.
+
+259
+00:16:36,010 --> 00:16:38,650
+It doesn't look like
+there's much overlap.
+
+260
+00:16:39,370 --> 00:16:42,269
+There's actually a
+handy function in
+
+261
+00:16:42,269 --> 00:16:47,569
+this ggvenn package, not
+function, argument
+
+262
+00:16:47,569 --> 00:16:50,730
+called auto underscore scale.
+
+263
+00:16:50,730 --> 00:16:55,550
+If you set auto
+underscore scale to true,
+
+264
+00:16:55,550 --> 00:16:58,929
+that should help us out a bit.
+
+265
+00:17:07,160 --> 00:17:09,559
+There we go.
+
+266
+00:17:10,800 --> 00:17:15,980
+Now it's changed slightly.
+
+267
+00:17:15,980 --> 00:17:22,699
+It seems a lot more realistic
+or visually at a glance,
+
+268
+00:17:22,699 --> 00:17:24,619
+you can see that
+
+269
+00:17:24,619 --> 00:17:28,100
+the smokers encapsulates
+almost everyone
+
+270
+00:17:28,100 --> 00:17:30,559
+that is also diabetic.
+
+271
+00:17:30,720 --> 00:17:34,620
+I just think that's
+a bit easier to see
+
+272
+00:17:34,620 --> 00:17:35,759
+the output as opposed to
+
+273
+00:17:35,759 --> 00:17:38,959
+the two even circles
+that we had before.
+
+274
+00:17:42,360 --> 00:17:45,980
+You can change lots
+of other things.
+
+275
+00:17:45,980 --> 00:17:49,319
+If you put F one on
+the ggvenn function,
+
+276
+00:17:49,319 --> 00:17:51,680
+we can have a look at
+some of the options,
+
+277
+00:17:51,680 --> 00:17:54,279
+but you can change
+the colours and
+
+278
+00:17:54,279 --> 00:18:01,239
+the size of the font and
+all of those things.
+
+279
+00:18:01,360 --> 00:18:05,360
+We're just opening up the
+help document at the moment.
+
+280
+00:18:05,360 --> 00:18:06,799
+Just now, just to have a look at
+
+281
+00:18:06,799 --> 00:18:12,080
+all the things that we can
+change in this venn diagram.
+
+282
+00:18:17,280 --> 00:18:22,300
+These are all default,
+
+283
+00:18:22,300 --> 00:18:24,579
+it's autoscale is false.
+
+284
+00:18:24,579 --> 00:18:27,479
+That's because the autoscaling
+
+285
+00:18:27,479 --> 00:18:32,259
+is only possible in
+
+286
+00:18:32,259 --> 00:18:36,639
+these simple venn diagrams
+with two variables.
+
+287
+00:18:36,639 --> 00:18:41,664
+When it comes to more
+complicated venn diagrams,
+
+288
+00:18:41,664 --> 00:18:45,289
+the mathematical
+applicability of
+
+289
+00:18:45,289 --> 00:18:48,570
+having the correct
+overlap of exact circles,
+
+290
+00:18:48,570 --> 00:18:51,709
+which is what we're plotting
+here, gets too complicated.
+
+291
+00:18:51,709 --> 00:18:53,150
+You can't actually scale those.
+
+292
+00:18:53,150 --> 00:18:56,329
+I think that's why by
+default it is false.
+
+293
+00:18:57,730 --> 00:18:59,829
+Why don't we have to go at
+
+294
+00:18:59,829 --> 00:19:03,349
+changing fill underscore colour.
+
+295
+00:19:03,349 --> 00:19:07,409
+Right now it's using
+the blue and yellow.
+
+296
+00:19:07,409 --> 00:19:12,609
+But why don't we change
+them to any colour?
+
+297
+00:19:20,680 --> 00:19:23,080
+We only need to give it two.
+
+298
+00:19:23,080 --> 00:19:24,859
+We dont need to give it three colours
+
+299
+00:19:24,859 --> 00:19:27,759
+because there are
+three cos on the plot.
+
+300
+00:19:30,120 --> 00:19:34,719
+You need to give it two
+and the middle colour,
+
+301
+00:19:34,719 --> 00:19:37,140
+because it's slightly
+transparent,
+
+302
+00:19:37,140 --> 00:19:39,339
+like the alpha of 0.5 I
+
+303
+00:19:39,339 --> 00:19:42,520
+think it's just
+overlapping those colours.
+
+304
+00:19:50,520 --> 00:19:53,540
+Brilliant. Now we've changed
+
+305
+00:19:53,540 --> 00:19:55,000
+the colours to purple and green.
+
+306
+00:19:55,000 --> 00:19:58,759
+You can change them
+to, the opportunities
+
+307
+00:19:58,759 --> 00:20:01,959
+are pretty vast colour.
+
+308
+00:20:01,959 --> 00:20:04,679
+You can give colour
+names or hex codes.
+
+309
+00:20:04,679 --> 00:20:06,760
+Try changing fill
+
+310
+00:20:06,760 --> 00:20:08,939
+Underscore alpha just so
+we can have a look at
+
+311
+00:20:08,939 --> 00:20:11,540
+how the transparency works.
+
+312
+00:20:11,540 --> 00:20:13,920
+That middle overlap intersection
+
+313
+00:20:13,920 --> 00:20:17,919
+is just made up of a mix
+of both of those colours.
+
+314
+00:20:17,919 --> 00:20:20,460
+But I think that's because
+of the transparency.
+
+315
+00:20:20,460 --> 00:20:24,360
+If we make it 10
+
+316
+00:20:27,240 --> 00:20:33,559
+by default 0.51 it'll be opaque.
+
+317
+00:20:34,280 --> 00:20:40,640
+Yes. Yeah, that doesn't do
+the overlap colour as much,
+
+318
+00:20:40,640 --> 00:20:43,159
+which I think the 0.5 default is
+
+319
+00:20:43,159 --> 00:20:46,259
+probably a good shots on.
+
+320
+00:20:46,259 --> 00:20:47,919
+The green has dominated,
+
+321
+00:20:47,919 --> 00:20:50,659
+taken president, if it's
+zero with the puck.
+
+322
+00:20:50,659 --> 00:20:54,699
+All right, so colour at all.
+
+323
+00:20:54,699 --> 00:21:04,159
+So this is the overall.
+
+324
+00:21:04,180 --> 00:21:08,099
+Transparency of it. It's
+not just the centre.
+
+325
+00:21:08,099 --> 00:21:09,600
+I guess that means the brain one
+
+326
+00:21:09,600 --> 00:21:11,319
+is being put over
+the purple one.
+
+327
+00:21:11,319 --> 00:21:16,440
+Which is why when they
+were fully colour blocked,
+
+328
+00:21:16,440 --> 00:21:18,340
+the green one was on top.
+
+329
+00:21:18,340 --> 00:21:20,000
+Makes sense.
+
+330
+00:21:20,000 --> 00:21:23,299
+Okay. Yes. That's just a
+bit of a demonstration
+
+331
+00:21:23,299 --> 00:21:26,479
+that you can change
+most things here.
+
+332
+00:21:26,479 --> 00:21:29,759
+You can change the text size,
+
+333
+00:21:29,759 --> 00:21:33,460
+you can change the colours,
+
+334
+00:21:33,460 --> 00:21:35,639
+you can change, you
+
+335
+00:21:35,639 --> 00:21:36,680
+can change almost anything
+
+336
+00:21:36,680 --> 00:21:38,659
+that you don't like about this.
+
+337
+00:21:38,980 --> 00:21:41,699
+And all you have to do
+is add the argument
+
+338
+00:21:41,699 --> 00:21:44,820
+into your code junk.
+
+339
+00:21:44,820 --> 00:21:47,899
+Okay, let's try
+
+340
+00:21:47,899 --> 00:21:55,879
+three variables, okay?
+
+341
+00:21:55,879 --> 00:21:59,580
+Yeah, we've already pretty
+much done that task there.
+
+342
+00:21:59,580 --> 00:22:03,399
+Skip that? No, no,
+it's all right.
+
+343
+00:22:03,399 --> 00:22:05,159
+I was just trying to
+
+344
+00:22:05,159 --> 00:22:07,880
+formulate things in
+my brain a bit more.
+
+345
+00:22:07,880 --> 00:22:11,680
+If you copy the code chunk
+from task two into task four,
+
+346
+00:22:11,680 --> 00:22:14,219
+and then we can add
+a third variable.
+
+347
+00:22:25,900 --> 00:22:29,180
+So that's the columns
+
+348
+00:22:33,780 --> 00:22:36,119
+she had like obesity
+
+349
+00:22:36,119 --> 00:22:38,739
+I think is the name
+of the other column.
+
+350
+00:22:43,720 --> 00:22:49,380
+There we go. Just try
+running that, right?
+
+351
+00:22:49,380 --> 00:22:53,220
+Yes. This is what I
+was trying to mention
+
+352
+00:22:53,220 --> 00:23:00,120
+earlier that you can't
+scale more than two.
+
+353
+00:23:00,120 --> 00:23:02,139
+The two venn diagram
+
+354
+00:23:02,139 --> 00:23:04,119
+looks quite nice because
+you can scale it.
+
+355
+00:23:04,119 --> 00:23:08,259
+The circles are
+proportional to the sample,
+
+356
+00:23:08,259 --> 00:23:10,420
+vaguely proportional
+to the sample size.
+
+357
+00:23:10,420 --> 00:23:12,740
+But once you start
+doing more than two,
+
+358
+00:23:12,740 --> 00:23:14,940
+it gets quite tricky.
+
+359
+00:23:14,940 --> 00:23:18,099
+We're going to have to take
+out that autoscale argument.
+
+360
+00:23:18,099 --> 00:23:21,480
+We can't have
+autoscale equals true.
+
+361
+00:23:21,680 --> 00:23:25,200
+This is the same with
+the other functions
+
+362
+00:23:25,200 --> 00:23:26,459
+or the other packages that I was
+
+363
+00:23:26,459 --> 00:23:31,019
+looking at in how to
+make venn diagrams.
+
+364
+00:23:31,019 --> 00:23:33,959
+The venn diagram package
+also can't scale
+
+365
+00:23:33,959 --> 00:23:38,279
+on three or more usually.
+
+366
+00:23:44,080 --> 00:23:49,639
+What is this error?
+Insufficient amount.
+
+367
+00:23:49,639 --> 00:23:52,899
+Okay. This is an
+error that's come up.
+
+368
+00:23:52,899 --> 00:23:54,899
+It's quite nice to see errors.
+
+369
+00:23:54,899 --> 00:23:57,759
+It's basically telling
+us that three is needed,
+
+370
+00:23:57,759 --> 00:24:00,699
+but only two is provided
+in the manual scale.
+
+371
+00:24:00,699 --> 00:24:03,120
+This is in reference
+to the colours.
+
+372
+00:24:03,120 --> 00:24:04,980
+We've given it two colours,
+
+373
+00:24:04,980 --> 00:24:08,080
+but now there's going
+to be three circles.
+
+374
+00:24:08,240 --> 00:24:19,069
+We just have to give it
+an extra colour. Perfect.
+
+375
+00:24:23,190 --> 00:24:25,549
+There we go.
+
+376
+00:24:25,549 --> 00:24:28,109
+Now we've got a Venn diagram of
+
+377
+00:24:28,109 --> 00:24:30,930
+our three comorbidities
+and you can see
+
+378
+00:24:30,930 --> 00:24:35,009
+the overlap between
+the intersection
+
+379
+00:24:35,009 --> 00:24:36,449
+between diabetes and smoking.
+
+380
+00:24:36,449 --> 00:24:39,009
+Smoking, obesity,
+obesity, and diabetes,
+
+381
+00:24:39,009 --> 00:24:40,629
+and then also the
+intersection of
+
+382
+00:24:40,629 --> 00:24:43,390
+all three in the middle there.
+
+383
+00:24:43,390 --> 00:24:45,929
+It's a bit trickier because you
+
+384
+00:24:45,929 --> 00:24:49,450
+can't scale the circles
+to different sizes.
+
+385
+00:24:49,450 --> 00:24:54,640
+The overlap doesn't necessarily
+
+386
+00:24:54,640 --> 00:24:58,259
+match the size of the number
+that it's giving you,
+
+387
+00:24:58,259 --> 00:25:01,339
+which I find a bit frustrating.
+
+388
+00:25:01,339 --> 00:25:04,539
+But when you're
+using two variables,
+
+389
+00:25:04,539 --> 00:25:10,820
+it can be a nice way
+to demonstrate three.
+
+390
+00:25:10,820 --> 00:25:12,719
+As long as you have
+the numbers there,
+
+391
+00:25:12,719 --> 00:25:15,240
+it's not too complicated
+to understand.
+
+392
+00:25:15,240 --> 00:25:20,859
+It starts getting really
+hard with four variables,
+
+393
+00:25:20,980 --> 00:25:24,719
+which we can show just for
+
+394
+00:25:24,719 --> 00:25:30,100
+fun if you add a fourth
+variable into the column.
+
+395
+00:25:32,260 --> 00:25:37,180
+If you add alcohol consumption,
+
+396
+00:25:37,780 --> 00:25:41,579
+alcohol underscore consumption.
+
+397
+00:25:41,820 --> 00:25:44,439
+And then you'll need to
+add a fourth colour as
+
+398
+00:25:44,439 --> 00:25:52,339
+well. Any more colours.
+
+399
+00:25:59,340 --> 00:26:06,379
+Oh yeah, it gets a bit crazy.
+
+400
+00:26:06,379 --> 00:26:12,100
+I don't find this diagram
+that useful any more.
+
+401
+00:26:16,130 --> 00:26:19,009
+Yes. Venn diagrams.
+
+402
+00:26:19,009 --> 00:26:20,950
+I think with two,
+
+403
+00:26:20,950 --> 00:26:22,769
+you can make some
+really nice ones in
+
+404
+00:26:22,769 --> 00:26:25,689
+R. After that, they
+get a bit tricky.
+
+405
+00:26:25,689 --> 00:26:28,589
+But now I'm going
+to slightly pivot
+
+406
+00:26:28,589 --> 00:26:32,129
+the request to what
+I would do if I
+
+407
+00:26:32,129 --> 00:26:36,869
+was trying to
+visualise this data
+
+408
+00:26:36,869 --> 00:26:45,009
+in R. What I would do instead
+was create an upset plot.
+
+409
+00:26:45,170 --> 00:26:48,990
+What does the
+numbers that far out
+
+410
+00:26:48,990 --> 00:26:52,750
+that basically the question
+
+411
+00:26:52,750 --> 00:26:54,970
+is what does the
+number represent?
+
+412
+00:26:54,970 --> 00:26:58,949
+Lost the chat. What does
+
+413
+00:26:58,949 --> 00:27:00,269
+the number represent
+that appears
+
+414
+00:27:00,269 --> 00:27:01,810
+outside the diagram each time?
+
+415
+00:27:01,810 --> 00:27:04,709
+That is the patients that
+
+416
+00:27:04,709 --> 00:27:09,070
+don't fall into
+these categories,
+
+417
+00:27:09,070 --> 00:27:12,990
+although they should
+just be right.
+
+418
+00:27:12,990 --> 00:27:16,810
+Yeah, they're the ones that
+are a false for everything.
+
+419
+00:27:20,370 --> 00:27:25,210
+30 patients are not
+obese or smokers,
+
+420
+00:27:25,210 --> 00:27:28,370
+or diabetic or consume alcohol.
+
+421
+00:27:33,370 --> 00:27:36,209
+Yeah, it's a bit funny.
+
+422
+00:27:36,209 --> 00:27:41,189
+Theoretically here we
+might want a circle.
+
+423
+00:27:41,189 --> 00:27:43,390
+Around the outside
+of these are people
+
+424
+00:27:43,390 --> 00:27:46,390
+that have heart disease thing.
+
+425
+00:27:46,390 --> 00:27:49,149
+And then those 30 people
+would fall into that circle,
+
+426
+00:27:49,149 --> 00:27:51,069
+but they don't have any
+of the comorbidities
+
+427
+00:27:51,069 --> 00:27:52,289
+depending on what
+you're actually
+
+428
+00:27:52,289 --> 00:27:58,550
+trying to visualise, right?
+
+429
+00:27:58,550 --> 00:28:02,250
+So this is not a
+particularly useful diagram.
+
+430
+00:28:02,250 --> 00:28:06,450
+It could be, Yeah, I find,
+
+431
+00:28:06,450 --> 00:28:10,969
+I think upset plots would be
+where I would jump to if I
+
+432
+00:28:10,969 --> 00:28:15,709
+was doing above three or maybe
+even above two variables,
+
+433
+00:28:15,709 --> 00:28:17,469
+depending on the
+type of journal or
+
+434
+00:28:17,469 --> 00:28:21,210
+publication or manuscript
+you're trying to write.
+
+435
+00:28:21,450 --> 00:28:23,710
+If you scroll down
+
+436
+00:28:23,710 --> 00:28:32,089
+nesse lines of code
+
+437
+00:28:32,089 --> 00:28:35,530
+I've just written in advance,
+
+438
+00:28:38,730 --> 00:28:44,569
+I'm just creating
+a new data frame
+
+439
+00:28:44,569 --> 00:28:47,610
+called Upset data from
+
+440
+00:28:47,610 --> 00:28:50,869
+our heart underscore
+DF data frame.
+
+441
+00:28:50,869 --> 00:28:54,189
+I'm selecting the variables
+I'm interested in.
+
+442
+00:28:54,189 --> 00:28:57,569
+I'm interested in the
+column diabetes, obesity,
+
+443
+00:28:57,569 --> 00:29:01,290
+smoking, alcohol consumption,
+and medication use.
+
+444
+00:29:01,290 --> 00:29:05,970
+You can imagine these five
+variables in a Venn diagram.
+
+445
+00:29:05,970 --> 00:29:08,250
+There would be a lot of overlap.
+
+446
+00:29:08,250 --> 00:29:10,089
+It'd be very difficult to
+
+447
+00:29:10,089 --> 00:29:13,549
+work out what number
+is representing,
+
+448
+00:29:13,549 --> 00:29:16,270
+but you might want
+to have a diagram
+
+449
+00:29:16,270 --> 00:29:19,889
+that shows the patient.
+
+450
+00:29:19,930 --> 00:29:22,429
+You might want to know if
+
+451
+00:29:22,429 --> 00:29:23,749
+there's patients
+that have lots of
+
+452
+00:29:23,749 --> 00:29:25,809
+these combilities or
+if we're looking at
+
+453
+00:29:25,809 --> 00:29:28,610
+a dataset of people that
+tend to just have one.
+
+454
+00:29:28,610 --> 00:29:31,210
+Yeah, there's just lots
+
+455
+00:29:31,210 --> 00:29:32,529
+of reasons why you
+might want to have
+
+456
+00:29:32,529 --> 00:29:36,409
+a venn diagram style
+diagram type information
+
+457
+00:29:36,409 --> 00:29:38,650
+in a different diagram.
+
+458
+00:29:38,650 --> 00:29:41,769
+One important thing to note is
+
+459
+00:29:41,769 --> 00:29:48,419
+that to use the upset plot,
+
+460
+00:29:48,419 --> 00:29:51,519
+you have to use this
+function as.data.frame,
+
+461
+00:29:51,519 --> 00:29:56,380
+which turns it into a data
+frame as opposed to a tibble,
+
+462
+00:29:56,380 --> 00:29:58,540
+which we use commonly.
+
+463
+00:29:58,540 --> 00:30:00,719
+In the tidyverse,
+
+464
+00:30:02,000 --> 00:30:06,980
+I think this is because upset,
+
+465
+00:30:06,980 --> 00:30:10,960
+the package that's coming
+from is from five years ago,
+
+466
+00:30:10,960 --> 00:30:16,200
+which in Rs lifetime
+is quite old, I guess.
+
+467
+00:30:16,200 --> 00:30:19,920
+It doesn't handle tibbles.
+
+468
+00:30:20,860 --> 00:30:24,700
+That's just something
+to Oh yeah,
+
+469
+00:30:24,700 --> 00:30:29,979
+just there we can show
+you without as a tibble.
+
+470
+00:30:29,979 --> 00:30:31,719
+And you can see the error
+if that is helpful.
+
+471
+00:30:31,719 --> 00:30:34,020
+But it's just important
+to note that sometimes
+
+472
+00:30:34,020 --> 00:30:37,860
+older packages
+don't like tibbles,
+
+473
+00:30:37,860 --> 00:30:39,579
+which is a bit frustrating.
+
+474
+00:30:39,579 --> 00:30:41,420
+But yes, if you run that chunk,
+
+475
+00:30:41,420 --> 00:30:44,559
+the create the upset data.
+
+476
+00:30:44,559 --> 00:30:49,359
+Just the first part. Both parts.
+
+477
+00:30:49,359 --> 00:30:53,639
+Both lines we can do all.
+
+478
+00:30:53,639 --> 00:30:56,680
+We can talk through what the
+second bit is doing as well.
+
+479
+00:30:56,680 --> 00:31:02,989
+Okay, there we go.
+
+480
+00:31:02,989 --> 00:31:05,750
+If you open upset data quickly,
+
+481
+00:31:05,750 --> 00:31:07,789
+just to have a look at so
+
+482
+00:31:07,789 --> 00:31:10,149
+everyone can see
+what it looks like.
+
+483
+00:31:10,390 --> 00:31:13,309
+These are the columns
+that we selected for.
+
+484
+00:31:13,309 --> 00:31:15,789
+Instead of true and false,
+
+485
+00:31:15,789 --> 00:31:18,550
+it's going back to
+ones and zeros.
+
+486
+00:31:18,630 --> 00:31:22,909
+I did that in advance just
+because it's a bit easier.
+
+487
+00:31:23,150 --> 00:31:28,510
+Upset needs ones and zeros as
+opposed to trues and false.
+
+488
+00:31:28,510 --> 00:31:32,510
+That venn diagram needed,
+that's what that was doing.
+
+489
+00:31:32,510 --> 00:31:36,729
+You'll notice the
+column headings
+
+490
+00:31:36,729 --> 00:31:42,150
+are now back to having
+capitals and spaces in them.
+
+491
+00:31:42,650 --> 00:31:45,349
+I'll explain why I did that.
+
+492
+00:31:45,349 --> 00:31:48,369
+We create an upset plot.
+
+493
+00:31:48,369 --> 00:31:50,990
+It's mostly just an
+aesthetic thing.
+
+494
+00:31:50,990 --> 00:31:54,869
+If you go back into the
+markdown document, Neil,
+
+495
+00:31:54,869 --> 00:31:57,509
+and create a new chunk and
+
+496
+00:31:57,509 --> 00:32:02,730
+we're we're going to
+make an upset plot.
+
+497
+00:32:11,690 --> 00:32:15,590
+What you want to do is you're
+using the function upset,
+
+498
+00:32:15,590 --> 00:32:19,410
+it's just upset
+
+499
+00:32:22,150 --> 00:32:25,549
+that would be upset
+is the name of
+
+500
+00:32:25,549 --> 00:32:28,250
+the function that we're using
+from the library upset?
+
+501
+00:32:28,250 --> 00:32:33,550
+Yeah, that's that, as you
+can see in this helpful tab,
+
+502
+00:32:33,550 --> 00:32:36,849
+the things that it needs,
+all you really need to
+
+503
+00:32:36,849 --> 00:32:40,330
+give it is the
+dataset that we want.
+
+504
+00:32:40,330 --> 00:32:43,869
+If we start by doing
+that upset data,
+
+505
+00:32:44,150 --> 00:32:50,709
+we can change some of
+the aesthetics there.
+
+506
+00:32:50,709 --> 00:32:54,690
+If you run that, just
+see what it makes.
+
+507
+00:32:54,690 --> 00:32:57,309
+There we go. Can you
+
+508
+00:32:57,309 --> 00:33:00,310
+use out slightly so we
+can see it all at once?
+
+509
+00:33:00,710 --> 00:33:03,669
+This is what an upset
+plot looks like.
+
+510
+00:33:03,669 --> 00:33:06,290
+I like to do order by
+
+511
+00:33:06,290 --> 00:33:10,650
+frequency because right
+now it jumps around a lot.
+
+512
+00:33:10,650 --> 00:33:13,489
+It might actually be
+easier if we add it in
+
+513
+00:33:13,489 --> 00:33:15,090
+the frequency order before
+
+514
+00:33:15,090 --> 00:33:17,349
+we talk through
+what it's showing.
+
+515
+00:33:17,830 --> 00:33:23,269
+Yes, it's just order by
+
+516
+00:33:23,590 --> 00:33:34,149
+then, freq, in perfect.
+
+517
+00:33:34,149 --> 00:33:37,030
+And that just creates,
+
+518
+00:33:37,030 --> 00:33:39,889
+it's a bit easier to see because
+
+519
+00:33:39,889 --> 00:33:43,190
+the numbers are in
+descending order.
+
+520
+00:33:43,190 --> 00:33:49,290
+Now, basically this is an
+alternative to a Venn diagram.
+
+521
+00:33:51,530 --> 00:33:55,430
+The bars in the top
+plot are counts
+
+522
+00:33:55,430 --> 00:33:59,869
+of how many individuals have
+
+523
+00:33:59,869 --> 00:34:10,030
+the combination described
+using the lollipop things.
+
+524
+00:34:10,030 --> 00:34:17,409
+At the bottom, you'll see
+that 440 people have obesity,
+
+525
+00:34:17,409 --> 00:34:21,150
+consume alcohol or
+diabetic and smoke.
+
+526
+00:34:21,150 --> 00:34:27,049
+Then 434 take medication
+
+527
+00:34:27,049 --> 00:34:30,830
+for their heart,
+consume alcohol,
+
+528
+00:34:30,830 --> 00:34:36,530
+diabetic and smoke and
+so on This diagram,
+
+529
+00:34:36,530 --> 00:34:38,069
+you can see that most of
+
+530
+00:34:38,069 --> 00:34:41,729
+our patients have
+multimorbidity.
+
+531
+00:34:41,729 --> 00:34:45,309
+If you can call these
+co morbidities,
+
+532
+00:34:45,309 --> 00:34:52,429
+few patients have only
+one or two combinations.
+
+533
+00:34:52,429 --> 00:34:56,849
+The reason I changed the
+names of the columns early on
+
+534
+00:34:56,849 --> 00:35:02,489
+is that the bottom
+half of the diagram,
+
+535
+00:35:02,489 --> 00:35:06,970
+you can see that it's
+nicely formulated headings
+
+536
+00:35:06,970 --> 00:35:09,209
+as opposed to the
+column headings that
+
+537
+00:35:09,209 --> 00:35:12,869
+would have had no
+spaces and underscores.
+
+538
+00:35:14,390 --> 00:35:20,329
+Cool. I guess if
+
+539
+00:35:20,329 --> 00:35:23,249
+you go in the help tab
+for the upset plot,
+
+540
+00:35:23,249 --> 00:35:24,749
+we can have a look at
+some of the things that
+
+541
+00:35:24,749 --> 00:35:27,209
+we can customise with
+
+542
+00:35:27,209 --> 00:35:28,349
+this
+
+543
+00:35:44,990 --> 00:35:46,330
+number
+
+544
+00:35:46,330 --> 00:35:47,990
+of sets.
+
+545
+00:35:50,230 --> 00:35:55,149
+I guess that's if
+you have lots of,
+
+546
+00:35:55,149 --> 00:35:57,830
+we only have five anyway.
+
+547
+00:35:57,830 --> 00:36:01,729
+But if you had more,
+
+548
+00:36:01,729 --> 00:36:05,589
+there might be some outliers
+that are less informative.
+
+549
+00:36:05,589 --> 00:36:08,930
+So you might want to just reduce
+
+550
+00:36:08,930 --> 00:36:13,629
+that number, number
+of intersects.
+
+551
+00:36:13,629 --> 00:36:17,769
+I think, yeah, that could be,
+
+552
+00:36:17,769 --> 00:36:20,789
+again, there might be some
+outliers at the other end.
+
+553
+00:36:20,789 --> 00:36:25,029
+Is that 40 that we
+have that like 40.
+
+554
+00:36:29,550 --> 00:36:32,649
+Anyway, you can change
+the number of intersects
+
+555
+00:36:32,649 --> 00:36:35,089
+that you're interested in with
+
+556
+00:36:35,089 --> 00:36:39,629
+that order by frequency
+
+557
+00:36:39,629 --> 00:36:42,969
+is the main one that I do every
+time I make one of these.
+
+558
+00:36:42,969 --> 00:36:45,309
+Because I think it's a bit more
+
+559
+00:36:45,309 --> 00:36:48,549
+informative to be able to see
+
+560
+00:36:48,549 --> 00:36:50,749
+that trend as opposed to
+
+561
+00:36:50,749 --> 00:36:57,709
+it being a bit more up
+and down. Why don't we
+
+562
+00:37:07,040 --> 00:37:17,740
+We could change the minbar
+label from intersection size.
+
+563
+00:37:17,740 --> 00:37:19,359
+We could change it
+to whatever we want,
+
+564
+00:37:19,359 --> 00:37:23,160
+something like number
+of patients or Yeah,
+
+565
+00:37:23,160 --> 00:37:25,280
+try number of patients.
+
+566
+00:37:26,600 --> 00:37:28,060
+Okay,
+
+567
+00:37:28,060 --> 00:37:37,939
+so label going
+
+568
+00:37:37,939 --> 00:37:45,199
+to call it number of
+
+569
+00:37:45,199 --> 00:37:46,640
+patients.
+
+570
+00:37:54,320 --> 00:37:56,719
+Let's change this.
+
+571
+00:37:56,719 --> 00:38:00,439
+Yeah, so let's change
+that there so we can,
+
+572
+00:38:00,980 --> 00:38:04,499
+yeah, it doesn't have
+
+573
+00:38:04,499 --> 00:38:06,500
+to be intersection size,
+which is the default.
+
+574
+00:38:06,500 --> 00:38:08,519
+You can change it to
+whatever you want it to be.
+
+575
+00:38:08,519 --> 00:38:16,900
+Let's do one more and change
+the colour of the main bars.
+
+576
+00:38:16,900 --> 00:38:20,079
+Let's do bar colour and
+
+577
+00:38:20,079 --> 00:38:24,039
+change it to whatever
+colour we want.
+
+578
+00:38:24,039 --> 00:38:26,579
+When it comes to changing
+all colours as a whole,
+
+579
+00:38:26,579 --> 00:38:27,859
+it's more of an
+aesthetic thing as
+
+580
+00:38:27,859 --> 00:38:30,539
+opposed to trying to
+convey information.
+
+581
+00:38:30,539 --> 00:38:32,959
+But it's sometimes
+nice to have like
+
+582
+00:38:32,959 --> 00:38:35,439
+a theme of colours
+that you use a lot.
+
+583
+00:38:35,439 --> 00:38:37,700
+Yeah, light blue is nice.
+
+584
+00:38:38,730 --> 00:38:43,250
+Now, those bars are blue.
+
+585
+00:38:46,530 --> 00:38:49,409
+Awesome. Yeah.
+
+586
+00:38:49,409 --> 00:38:51,869
+As you can see in the Help tab,
+
+587
+00:38:51,869 --> 00:38:54,789
+there's loads and those
+are things that you
+
+588
+00:38:54,789 --> 00:38:58,050
+can do to change the point size,
+
+589
+00:38:58,050 --> 00:39:04,090
+line size, the numbers
+that you see, the colours.
+
+590
+00:39:04,210 --> 00:39:07,669
+Yeah, I find upset plots
+quite useful if you're
+
+591
+00:39:07,669 --> 00:39:10,969
+trying to convey diagram
+like information.
+
+592
+00:39:10,969 --> 00:39:13,629
+But you've got too
+many variables
+
+593
+00:39:13,629 --> 00:39:16,289
+but it gets a bit
+too complicated.
+
+594
+00:39:16,289 --> 00:39:18,329
+Yeah.
+
+595
+00:39:19,610 --> 00:39:21,769
+Is it possible, the question,
+
+596
+00:39:21,769 --> 00:39:23,769
+is it possible to have
+each colnability in
+
+597
+00:39:23,769 --> 00:39:27,890
+its own colour? Good question.
+
+598
+00:39:28,330 --> 00:39:31,889
+Let's see if we
+can work that out.
+
+599
+00:39:35,450 --> 00:39:39,409
+If we have a look at
+this is what I would do
+
+600
+00:39:39,409 --> 00:39:41,309
+or what we would do when
+
+601
+00:39:41,309 --> 00:39:43,189
+we're not sure. I've
+never done that.
+
+602
+00:39:43,189 --> 00:39:48,770
+I would have a look
+at these options.
+
+603
+00:39:49,330 --> 00:39:53,050
+I think it's set bar colour.
+
+604
+00:39:54,410 --> 00:39:59,250
+These are the sets. If we try
+changing sets bar colours,
+
+605
+00:39:59,250 --> 00:40:01,350
+but create like a combined
+
+606
+00:40:01,350 --> 00:40:06,070
+and give them five
+different colours,
+
+607
+00:40:06,070 --> 00:40:11,299
+see what happens, and
+
+608
+00:40:11,299 --> 00:40:14,239
+then we'll do fine
+calls, give it a go.
+
+609
+00:40:14,239 --> 00:40:16,839
+I'm not sure if this will work.
+
+610
+00:40:42,010 --> 00:40:47,170
+Yeah. Okay. That's the bars.
+
+611
+00:40:47,170 --> 00:40:49,370
+Okay. That's those bars.
+
+612
+00:40:51,090 --> 00:40:55,630
+What other colours can we
+sit if you find in topic?
+
+613
+00:40:55,630 --> 00:40:57,150
+If you search the word colour?
+
+614
+00:40:57,150 --> 00:41:01,169
+Sometimes I just like in
+
+615
+00:41:01,169 --> 00:41:10,209
+that one other search
+box next to the,
+
+616
+00:41:10,490 --> 00:41:12,549
+although I think you'll have to
+
+617
+00:41:12,549 --> 00:41:15,009
+spell it the American way.
+
+618
+00:41:16,450 --> 00:41:28,370
+See what comes up?
+A tribute colour?
+
+619
+00:41:29,410 --> 00:41:31,049
+It might be.
+
+620
+00:41:31,049 --> 00:41:32,409
+Yeah.
+
+621
+00:41:41,450 --> 00:41:43,030
+Oh, colour
+
+622
+00:41:43,030 --> 00:41:45,529
+of the intersection
+points is that.
+
+623
+00:41:46,170 --> 00:41:49,209
+Yeah, I think it's
+that. Give that one
+
+624
+00:41:49,209 --> 00:41:52,410
+it goes matrix colour.
+
+625
+00:41:52,410 --> 00:41:54,570
+Wanted.
+
+626
+00:42:01,550 --> 00:42:04,169
+So I'll just copy this.
+
+627
+00:42:04,169 --> 00:42:06,950
+Yeah, just use the same colours.
+
+628
+00:42:14,950 --> 00:42:17,590
+That is not what we wanted.
+
+629
+00:42:17,590 --> 00:42:19,830
+Oh, so that's just
+looking for one colour.
+
+630
+00:42:19,830 --> 00:42:21,590
+Okay. Right, that's annoying.
+
+631
+00:42:21,590 --> 00:42:23,250
+It's just taking
+the first colour
+
+632
+00:42:23,250 --> 00:42:26,069
+which is orange
+and made them all.
+
+633
+00:42:30,990 --> 00:42:34,189
+I think that would
+be would it be
+
+634
+00:42:34,189 --> 00:42:35,810
+the main bar plot if
+you tried putting
+
+635
+00:42:35,810 --> 00:42:39,069
+the combined colour
+list in there?
+
+636
+00:42:39,630 --> 00:42:42,149
+Is that what the
+question was about
+
+637
+00:42:42,149 --> 00:42:45,630
+the currently blue
+bars bar colour?
+
+638
+00:42:45,630 --> 00:42:48,749
+If I put this? I don't know.
+
+639
+00:42:48,749 --> 00:42:51,849
+Yeah, we can try it.
+
+640
+00:42:51,849 --> 00:42:53,909
+Yeah, I think that
+
+641
+00:42:53,909 --> 00:42:57,329
+that's for the main bars
+that are going up and down.
+
+642
+00:42:57,329 --> 00:43:03,269
+I think, yeah, that technically
+or whatever number it is.
+
+643
+00:43:03,269 --> 00:43:05,609
+I think ideally each
+
+644
+00:43:05,609 --> 00:43:08,910
+comorbidity where
+the coloured bars
+
+645
+00:43:08,910 --> 00:43:10,369
+on the left hand side are,
+
+646
+00:43:10,369 --> 00:43:13,070
+each of the dots would
+also have that colour,
+
+647
+00:43:13,070 --> 00:43:15,229
+just to make it easier to read.
+
+648
+00:43:15,229 --> 00:43:17,989
+But I don't think it's
+going to take that.
+
+649
+00:43:17,989 --> 00:43:20,129
+It's taken orange
+as the first colour
+
+650
+00:43:20,129 --> 00:43:22,869
+we've given it and just
+coloured them all that way.
+
+651
+00:43:22,869 --> 00:43:26,909
+It looks like the answer is no.
+
+652
+00:43:29,390 --> 00:43:35,210
+A colour coming to go and
+change all the colours.
+
+653
+00:43:35,210 --> 00:43:39,130
+A colour colour of
+attribute histogram bins
+
+654
+00:43:39,130 --> 00:43:41,510
+or scetoblock points.
+
+655
+00:43:41,790 --> 00:43:45,669
+Okay. Yeah, actually that
+sounds like it could be.
+
+656
+00:43:49,470 --> 00:43:58,749
+Try taking out the
+matrix colour one.
+
+657
+00:44:21,340 --> 00:44:27,940
+And Agnes,
+
+658
+00:44:27,940 --> 00:44:30,560
+do you mean the ones that
+are currently light blue?
+
+659
+00:44:30,560 --> 00:44:33,860
+That you would like to have
+them different colours?
+
+660
+00:44:33,860 --> 00:44:36,679
+Yes. Yeah, I would have
+wanted to see that
+
+661
+00:44:36,679 --> 00:44:38,340
+killed in different colours
+
+662
+00:44:38,340 --> 00:44:40,899
+depending on the
+number of commodities.
+
+663
+00:44:40,899 --> 00:44:43,119
+But it seems like there
+
+664
+00:44:43,119 --> 00:44:45,939
+can only be one colour,
+so That's okay.
+
+665
+00:44:46,780 --> 00:44:52,859
+Yeah. Yeah, I'm not sure if
+you can change that one.
+
+666
+00:44:53,900 --> 00:44:57,319
+We'd have to give it
+a colour for each,
+
+667
+00:44:57,319 --> 00:45:02,859
+567-89-1062
+
+668
+00:45:07,450 --> 00:45:09,869
+31 colours to
+
+669
+00:45:09,869 --> 00:45:12,189
+make it to manually set it,
+
+670
+00:45:12,189 --> 00:45:14,150
+unless we can give a palette.
+
+671
+00:45:14,150 --> 00:45:17,229
+I think I, yes,
+
+672
+00:45:17,229 --> 00:45:20,449
+I'm not quite sure, but
+I can have a search.
+
+673
+00:45:20,449 --> 00:45:24,550
+And then before I upload
+the code to this demo,
+
+674
+00:45:24,550 --> 00:45:30,269
+I can see if I can fix
+it and then add that in.
+
+675
+00:45:30,269 --> 00:45:34,869
+But otherwise, does anyone
+have any questions on
+
+676
+00:45:34,869 --> 00:45:37,989
+this content or
+
+677
+00:45:37,989 --> 00:45:39,690
+indeed any quick clinic
+
+678
+00:45:39,690 --> 00:45:42,329
+questions because
+that ran on a bit.
+
+679
+00:45:45,890 --> 00:45:48,229
+Yes. I will share a link to
+
+680
+00:45:48,229 --> 00:45:50,030
+the previous videos on Github.
+
+681
+00:45:50,030 --> 00:45:53,509
+I'll do that right now. Right.
+
+682
+00:45:53,509 --> 00:45:56,129
+I'm going to stop the
+recording and then we
+
+683
+00:45:56,129 --> 00:45:58,949
+can get any brief questions
+if anyone has any.
+
+684
+00:45:58,949 --> 00:46:02,249
+And I'll share that
+link just now.
+
